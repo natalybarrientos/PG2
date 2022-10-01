@@ -324,7 +324,18 @@ return [
         [
             'text'       => ' Reportes',
             'icon'       => 'fas fa-chart-line',
-            'url'        => 'reportes',
+            'submenu'    =>[
+
+            [
+                'text'       => 'Gastos',
+                'url'        => '#',
+            ],
+            [
+                'text'       => 'Ganancias',
+                'url'        => '#',
+            ],
+            
+        ],
         ],
     ],
 

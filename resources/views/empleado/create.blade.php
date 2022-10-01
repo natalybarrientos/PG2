@@ -14,40 +14,40 @@
 <font face="Courier New">
 @section('content')
 
-
+<div class="container" style="max-width: 80%;">
     <form action="/empleados" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre Empleado</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
+            <input id="nombre" name="nombre" placeholder="Ingresa Nombre Completo del Empleado" type="text" class="form-control" style="max-width: 50%;" tabindex="1">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Documento de Identificación Personal</label>
-            <input id="dpi" name="dpi" type="text" class="form-control" tabindex="2">
+            <input id="dpi" name="dpi" type="text" placeholder="Ingresa número de DPI sin espacios" class="form-control" style="max-width: 50%;" tabindex="2">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Nacimiento</label>
-            <input id="fecha" name="fecha" type="date" class="form-control" tabindex="3">
+            <input id="fecha" name="fecha"  type="date" class="form-control" style="max-width: 50%;" tabindex="3">
         </div class="mb-3">
         <div><br>
             <label for="" class="form-label">Número de Contacto</label>
-            <input id="contacto" name="contacto" type="text" class="form-control" tabindex="4">
+            <input id="contacto" name="contacto" placeholder="Ingresa número de contacto" type="text" class="form-control"  style="max-width: 50%;" tabindex="4">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Dirección de Residencia</label>
-            <input id="direccion" name="direccion" type="text" class="form-control" tabindex="5">
+            <input id="direccion" name="direccion" placeholder="Ingresa la Dirección de Residencia" type="text" class="form-control" style="max-width: 50%;" tabindex="5">
         </div><br>
         <div class="mb-3">
             <img id="imagenSeleccionada" style="max-height: 300px;">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Foto</label>
-            <input id="imagen" name="imagen" type="file" class="form-control" tabindex="6">
+            <input id="imagen" name="imagen" type="file" class="form-control" style="max-width: 50%;" tabindex="6">
         </div><br>
 
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
-            <select name="estado" class="form-control">
+            <select name="estado" class="form-control" style="max-width: 50%;">
             <option value="Activo">Activo</option>
             <option value="Inactivo" selected>Inactivo</option>
             </select>
@@ -63,6 +63,8 @@
 
 
     </form>
+
+    </div>
 @stop
 
 @section('css')
