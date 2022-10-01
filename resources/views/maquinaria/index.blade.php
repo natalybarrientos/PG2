@@ -6,12 +6,13 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> M A Q U I N A R I A S </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D A S </h1>
-</font>
-
+<br>
+<br>
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
 <a href="maquinarias/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 

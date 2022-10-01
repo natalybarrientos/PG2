@@ -6,12 +6,15 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> P R O Y E C T O S </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D O S </h1>
+<br>
+<br>
 </font>
 
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
 <a href="proyectos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 

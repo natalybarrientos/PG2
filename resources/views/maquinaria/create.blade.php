@@ -11,8 +11,9 @@
 </font>  
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
     <form action="/maquinarias" method="POST" enctype="multipart/form-data">
     @csrf

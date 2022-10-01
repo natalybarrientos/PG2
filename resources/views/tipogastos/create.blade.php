@@ -11,8 +11,9 @@
 </font>   
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
     <form action="/tipogastos" method="POST">
     @csrf

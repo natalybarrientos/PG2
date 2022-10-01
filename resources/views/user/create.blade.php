@@ -10,9 +10,9 @@
 <br>   
    
 @stop
-
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
     <form action="/users" method="POST">
     @csrf

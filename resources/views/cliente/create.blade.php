@@ -12,9 +12,9 @@
 </font> 
 
 @stop
-
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
     <form action="/clientes" method="POST">
     @csrf

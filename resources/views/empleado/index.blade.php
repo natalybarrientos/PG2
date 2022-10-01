@@ -6,13 +6,15 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> E M P L E A D O S  </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D O S </h1>
-<br><br>
+<br>
+<br>
 </font> 
 
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 <a href="empleados/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
 <table id="empleados" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">

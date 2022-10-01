@@ -6,13 +6,16 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> U S U A R I O S </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D O S </h1>
+<br>
+<br>
 </font>
 
 
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
 <a href="users/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
@@ -37,6 +40,7 @@
              <td>{{$user->estado}}</td>
              <td>{{$user->rol}}</td>
              <td>
+
 
 
              <a href="/users/{{$user->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>

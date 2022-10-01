@@ -8,12 +8,14 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> C L I E N T E S </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D O S </h1>
+<br>
+<br> 
 </font>
 
 @stop
-
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
 <a href="clientes/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 

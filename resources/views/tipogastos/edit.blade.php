@@ -6,12 +6,14 @@
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> E D I C I Ó N  D E  </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R O </h1>
-<br><br>
+<br>
+<br>
 </font>  
 @stop
 
-@section('content')
 <font face="Courier New">
+@section('content')
+
 
 
     <form action="/tipogastos/{{$tipogastos->id}}" method="POST">

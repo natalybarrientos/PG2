@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Multiservicios</b>M&G',
+    'logo' => 'M&G',
     'logo_img' => 'vendor/adminlte/dist/img/LOGOMULTI.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -284,6 +284,7 @@ return [
             'can'  => 'manage-blog',
         ],
         ['header' => 'Multiservicios M&G'],
+        
        
         [
             'text' => ' Usuario',
