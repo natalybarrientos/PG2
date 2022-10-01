@@ -14,7 +14,7 @@
 @section('content')
 <font face="Courier New">
 
-<a href="users/create" class="btn btn-info mb-3">REGISTRAR</a>
+<a href="users/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
 <table id="users" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
@@ -39,11 +39,7 @@
              <td>
 
 
-             <form action="{{ route ('users.destroy',$user->id)}}" method="POST">
-             <a href="/users/{{$user->id}}/edit"   class="btn btn-info">EDITAR</a>
-           
-             </form>
-
+             <a href="/users/{{$user->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
 
              </td>
         </tr>
@@ -59,12 +55,15 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @stop
 
 @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <script>
     $(document).ready(function() {
