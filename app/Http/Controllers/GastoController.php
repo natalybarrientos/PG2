@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gasto;
 use App\Models\Tipogastos;
+use App\Models\Maquinaria;
 
 
 class GastoController extends Controller
@@ -30,8 +31,9 @@ class GastoController extends Controller
      */
     public function create()
     {
+        $maquinarias = Maquinaria::all();
         $tipogastos = Tipogastos::all();
-        return view('gasto.create')->with('tipogastos',$tipogastos);
+        return view('gasto.create', compact('tipogastos','maquinarias') );
     }
 
     /**
@@ -49,6 +51,7 @@ class GastoController extends Controller
         $gasto->fecha = $request->get('fecha');
         $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
+        $gasto->maquinaria_id = $request->get('maquinaria_id');
 
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
         //dd($gasto);
@@ -75,8 +78,11 @@ class GastoController extends Controller
      */
     public function edit($id)
     {   $tipogastos = Tipogastos::all();
+        $maquinarias = Maquinaria::all();
         $gasto = Gasto::find($id);
-        return view('gasto.edit', compact('gasto','tipogastos') );
+        return view('gasto.edit', compact('gasto','tipogastos', 'maquinarias') );
+
+        
     }
 
     /**
@@ -95,6 +101,7 @@ class GastoController extends Controller
         $gasto->fecha = $request->get('fecha');
         $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
+        $gasto->maquinaria_id = $request->get('maquinaria_id');
 
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
 

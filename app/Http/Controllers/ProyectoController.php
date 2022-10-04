@@ -36,6 +36,7 @@ class ProyectoController extends Controller
         $empleados = Empleado::all();
         return view('proyecto.create', compact('clientes','maquinarias','empleados') );
     }
+    
 
     /**
      * Store a newly created resource in storage.

@@ -328,11 +328,26 @@ return [
 
             [
                 'text'       => 'Gastos',
-                'url'        => '#',
+                'submenu'    =>[
+
+                    [
+                        'text'       => 'Maquinaria',
+                        'url'        => '#',
+                    ],
+                 
+                    
+                ],
             ],
             [
                 'text'       => 'Ganancias',
-                'url'        => '#',
+                'submenu'    =>[
+
+                    [
+                        'text'       => 'Proyectos',
+                        'url'        => '#',
+                    ],
+                    
+                ],
             ],
             
         ],

@@ -21,6 +21,7 @@ class CreateGastosTable extends Migration
             $table->date('fecha')->nullable();
             $table->string('factura',20)->nullable();
             $table->foreignId('tipogastos_id')->references('id')->on('tipogastos')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('maquinaria_id')->references('id')->on('maquinarias')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
 
         });

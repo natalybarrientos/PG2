@@ -43,6 +43,15 @@
             <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
           @endforeach
            </select>
+        </div><br>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Maquinaria</label>
+            <select name="maquinaria_id" class="form-control">
+           @foreach ($maquinarias as $maquinaria)
+            <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
+          @endforeach
+           </select>
         </div>
              
         <br><br>

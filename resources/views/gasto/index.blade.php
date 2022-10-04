@@ -27,6 +27,7 @@
         <th scope="col">Fecha de Factura</th>
         <th scope="col">Factura</th>
         <th scope="col">Tipo de gasto</th>
+        <th scope="col">Maquinaria</th>
         <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -41,6 +42,7 @@
              <td>{{$gasto->fecha}}</td>
              <td>{{$gasto->factura}}</td>
              <td>{{$gasto->tipogasto->tipo}}</td>
+             <td>{{$gasto->maquinarias->nombre}}</td>
              
 
              <td>

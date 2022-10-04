@@ -14,7 +14,7 @@
 <font face="Courier New">
 @section('content')
 
-<div class="container" style="max-width: 80%;">
+<div class="container" style="max-width: 80%">
     <form action="/empleados" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="mb-3">

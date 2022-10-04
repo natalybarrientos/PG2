@@ -13,4 +13,7 @@ class Gasto extends Model
         return $this->belongsTo('App\Models\Tipogastos', 'tipogastos_id');//Un gasto tiene un tipo de gasto
     }
 
+    public function maquinarias(){
+        return $this->belongsTo('App\Models\Maquinaria', 'maquinaria_id');//Un proyecto tiene una maquinaria
+    }
 }

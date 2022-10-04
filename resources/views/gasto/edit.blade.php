@@ -40,10 +40,25 @@
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
            @foreach ($tipogastos as $tipogasto)
+          
             <option value="{{$tipogasto->id}}" @if ($tipogasto->id == $gasto->tipogastos_id  ) selected  @endif >{{$tipogasto->tipo}}</option>
           @endforeach
            </select>    
+        </div><br>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Maquinaria</label>
+            <select name="maquinaria_id" class="form-control">
+           @foreach ($maquinarias as $maquinaria)
+           @if ($maquinaria->estado != 'Inactivo' || $maquinaria->id == $gasto->maquinaria_id )
+            <option value="{{$maquinaria->id}}" @if ($maquinaria->id == $gasto->maquinaria_id  ) selected  @endif >{{$maquinaria->nombre}}</option>
+             @endif
+          @endforeach
+           </select>    
         </div>
+
+
+
         <br><br>
        
         <div class="text-center">
