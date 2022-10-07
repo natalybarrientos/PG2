@@ -21,22 +21,48 @@
     
     @csrf
     @method('PUT')
+
+    <!-- Nombre -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre Cliente</label>
             <input id="nombre" name="nombre" type="text" class="form-control" value="{{$cliente->nombre}}">
-        </div><br>
+        </div>
+        @error('nombre')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- NIT -->
         <div class="mb-3">
             <label for="" class="form-label">NIT</label>
             <input id="nit" name="nit" type="text" class="form-control" value="{{$cliente->nit}}">
-        </div><br>
+        </div>
+        @error('nit')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
             <input id="contacto" name="contacto" type="text" class="form-control" value="{{$cliente->contacto}}">
-        </div><br>
+        </div>
+        @error('contacto')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Dirección -->
         <div class="mb-3">
             <label for="" class="form-label">Dirección de Residencia</label>
             <input id="direccion" name="direccion" type="text" class="form-control" value="{{$cliente->direccion}}">
-        </div><br>
+        </div>
+        @error('direccion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Estado -->
         <div class="mb-3>
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
@@ -44,7 +70,8 @@
             <option value="Inactivo" @if ($cliente->estado == 'Inactivo'  ) selected  @endif >Inactivo</option>
             </select>
         </div><br><br>
-       
+
+    <!-- Botones -->       
         <div class="text-center">
         <a href="/clientes" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>

@@ -18,21 +18,32 @@
 
     <form action="/tipogastos" method="POST" autocomplete="off">
     @csrf
+
+    <!-- Tipo de gasto -->
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
             <input id="tipo" name="tipo" placeholder="Ingresa el Tipo de Gasto." type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('tipo')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" placeholder="Ingresa breve descripción del tipo de gasto." type="text" class="form-control" tabindex="2">
-        </div>             
-            
-            <br><br>
-       
-            <div class="text-center">
-            <a href="/tipogastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
-            <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-            </div>
+        </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror          
+        <br><br>
+    
+    <!-- Botones -->
+        <div class="text-center">
+        <a href="/tipogastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
+        <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
+        </div>
 
     </form>
 

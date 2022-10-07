@@ -40,7 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       
+        $reglas= [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ];
+        $mensaje = [
+            'name.required' => 'El campo Nombre de usuario es requerido',
+            'email.required' => 'El Campo Correo electrónico es requerido',
+            'password.required' => 'El campo Contraseña es requerido',
+            
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
 
         $users = new User();
         $users->id = $request->get('id');
@@ -87,8 +100,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $reglas= [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
 
+        ];
+        $mensaje = [
+            'name.required' => 'El campo Nombre de usuario es requerido',
+            'email.required' => 'El Campo Correo electrónico es requerido',
+            'password.required' => 'El campo Contraseña es requerido',
+            
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+        $user = User::find($id);
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         if($request->get('password') != null){

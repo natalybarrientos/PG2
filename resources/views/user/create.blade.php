@@ -16,18 +16,38 @@
 <div class="container center col-md-5 col-md-offset-5" >
     <form action="/users" method="POST" autocomplete="off">
     @csrf
+
+    <!-- Usuario -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Usuario</label>
             <input id="name" name="name" placeholder="Ingresa Nombre y Apellido del usuario." type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('name')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Correo electronico -->
         <div class="mb-3">
             <label for="" class="form-label">Correo Electrónico</label>
             <input id="email" name="email" placeholder="Ingresa correo electrónico." type="text" class="form-control" tabindex="2">
-        </div><br>
+        </div>
+        @error('email')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Contraseña -->
         <div class="mb-3">
             <label for="" class="form-label">Contraseña</label>
             <input id="password" name="password" placeholder="Ingresa contraseña de 8 dígitos." type="password" class="form-control" tabindex="3">
-        </div><br>
+        </div>
+        @error('password')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
@@ -35,6 +55,8 @@
             <option value="Inactivo" >Inactivo</option>
             </select>
         </div><br>
+
+    <!-- Rol -->
         <div class="mb-3">
             <label for="" class="form-label">Rol</label>
             <select name="rol" class="form-control">
@@ -42,13 +64,16 @@
             <option value="Encargado" selected>Encargado</option>
             </select>
         </div>
-            
-            <br><br>
+        <br><br>
        
+    <!-- Botones -->
         <div class="text-center">
         <a href="/users" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div> <br><br>
+        </div>
+        <br><br>
+
+
     </form>
 
     </div>

@@ -39,6 +39,23 @@ class TipogastosController extends Controller
      */
     public function store(Request $request)
     {
+
+        $reglas= [
+            'tipo' => 'required|max:30',
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'tipo.required' => 'El campo tipo de gasto es requerido',
+            'tipo.max' => 'El Campo tipo de gasto no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
         $tipogastos = new Tipogastos();
         $tipogastos->id = $request->get('id');
         $tipogastos->tipo = $request->get('tipo');
@@ -82,6 +99,22 @@ class TipogastosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $reglas= [
+            'tipo' => 'required|max:30',
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'tipo.required' => 'El campo tipo de gasto es requerido',
+            'tipo.max' => 'El Campo tipo de gasto no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+        
         $tipogastos = Tipogastos::find($id);
 
         $tipogastos->tipo = $request->get('tipo');

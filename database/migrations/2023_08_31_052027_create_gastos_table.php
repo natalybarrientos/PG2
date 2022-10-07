@@ -14,6 +14,7 @@ class CreateGastosTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('gastos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion',80);

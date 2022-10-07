@@ -18,29 +18,48 @@
 
     <form action="/maquinarias" method="POST" enctype="multipart/form-data" autocomplete="off">
     @csrf
+
+    <!-- Maquinaria -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre Maquinaria</label>
             <input id="nombre" name="nombre" placeholder="Ingresa el nombre de la maquinaria." type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('nombre')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" placeholder="Ingresa breve descripción de la maquinaria." type="text" class="form-control" tabindex="2">
-        </div><br>
+        </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Precio -->
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
             <input id="precio" name="precio" placeholder="Ingresa el costo total de la maquinaria." type="text" class="form-control" tabindex="3">
         </div><br>
+
+    <!-- Fecha Adquisición -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Adquisición</label>
             <input id="fechaadq" name="fechaadq" type="date" class="form-control" tabindex="4">
         </div><br>
+
+    <!-- Fecha de baja -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Baja</label>
             <input id="fechabaja" name="fechabaja" type="date" class="form-control" tabindex="5">
         </div><br>
 
+    <!-- Fotografía -->
         <div>
-        <label for="" class="form-label">Foto</label>
+        <label for="" class="form-label">Fotografía</label>
             <div class="mb-3">
             <img id="imagenSeleccionada" style="max-height: 300px;">
             </div>
@@ -51,23 +70,22 @@
                 </div><br>
         </div>
 
-
-
-
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
             <option value="Activo" selected>Activo</option>
             <option value="Inactivo">Inactivo</option>
             </select>
-            </div>
-            
-            <br><br>
-       
+        </div>
+        <br><br>
+    
+    <!-- Botones -->
         <div class="text-center">
         <a href="/maquinarias" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div><br><br>
+        </div>
+        <br><br>
 
     </form>
    

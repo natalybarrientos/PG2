@@ -21,56 +21,72 @@
 
     @csrf
     @method('PUT')
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$gasto->descripcion}}">
-        </div><br>
+        </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Costo -->
         <div class="mb-3">
             <label for="" class="form-label">Costo</label>
             <input id="costo" name="costo" type="text" class="form-control" value="{{$gasto->costo}}">
         </div><br>
+
+    <!-- Fecha de gasto -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Gasto</label>
             <input id="fecha" name="fecha" type="date" class="form-control" value="{{$gasto->fecha}}">
         </div><br>
+
+    <!-- Factura -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Factura o Vale emitido</label>
             <input id="factura" name="factura" type="text" class="form-control" value="{{$gasto->factura}}">
         </div><br>
+
+    <!-- Tipo de gasto -->
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
-           @foreach ($tipogastos as $tipogasto)
-          
-            <option value="{{$tipogasto->id}}" @if ($tipogasto->id == $gasto->tipogastos_id  ) selected  @endif >{{$tipogasto->tipo}}</option>
-          @endforeach
-           </select>    
+            @foreach ($tipogastos as $tipogasto)
+                <option value="{{$tipogasto->id}}" @if ($tipogasto->id == $gasto->tipogastos_id  ) selected  @endif >{{$tipogasto->tipo}}</option>
+            @endforeach
+            </select>    
         </div><br>
 
+    <!-- Maquinaria -->
         <div class="mb-3">
             <label for="" class="form-label">Maquinaria</label>
             <select name="maquinaria_id" class="form-control">
-           @foreach ($maquinarias as $maquinaria)
-           @if ($maquinaria->estado != 'Inactivo' || $maquinaria->id == $gasto->maquinaria_id )
-            <option value="{{$maquinaria->id}}" @if ($maquinaria->id == $gasto->maquinaria_id  ) selected  @endif >{{$maquinaria->nombre}}</option>
-             @endif
-          @endforeach
+            @foreach ($maquinarias as $maquinaria)
+                @if ($maquinaria->estado != 'Inactivo' || $maquinaria->id == $gasto->maquinaria_id )
+                <option value="{{$maquinaria->id}}" @if ($maquinaria->id == $gasto->maquinaria_id  ) selected  @endif >{{$maquinaria->nombre}}</option>
+                @endif
+            @endforeach
            </select>     
         </div><br>
 
+    <!-- Empleado -->
         <div class="mb-3">
             <label for="" class="form-label">Empleado</label>
             <select name="empleado_id" class="form-control">
-           @foreach ($empleados as $empleado)
-           @if ($empleado->estado != 'Inactivo' || $empleado->id == $gasto->empleado_id )
-            <option value="{{$empleado->id}}" @if ($empleado->id == $empleado->empleado_id  ) selected  @endif >{{$empleado->nombre}}</option>
-             @endif
-          @endforeach
+            @foreach ($empleados as $empleado)
+                 @if ($empleado->estado != 'Inactivo' || $empleado->id == $gasto->empleado_id )
+                 <option value="{{$empleado->id}}" @if ($empleado->id == $empleado->empleado_id  ) selected  @endif >{{$empleado->nombre}}</option>
+                 @endif
+            @endforeach
            </select>    
         </div>
 
         <br><br>
        
+    <!-- Botones -->
         <div class="text-center">
         <a href="/gastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>

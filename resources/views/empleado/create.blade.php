@@ -19,37 +19,56 @@
 
     <form action="/empleados" method="POST" enctype="multipart/form-data" autocomplete="off">
     @csrf
+
+     <!-- Nombre de empleado -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre Empleado</label>
             <input id="nombre" name="nombre" placeholder="Ingresa Nombre Completo del Empleado" type="text" class="form-control" tabindex="1">
         </div>
         @error('nombre')
-    <div class="alert alert-danger">{{ $message }}</div>
+         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
+
+    <!-- Documento de Identificación Personal -->  
         <div class="mb-3">
             <label for="" class="form-label">Documento de Identificación Personal</label>
             <input id="dpi" name="dpi" type="text" placeholder="Ingresa número de DPI sin espacios" class="form-control" tabindex="2">
         </div>
         @error('dpi')
-    <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
+
+    <!-- Fecha de Nacimiento -->  
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Nacimiento</label>
             <input id="fecha" name="fecha"  type="date" max="{{$fecha}}" class="form-control"  tabindex="3">
         </div class="mb-3">
-        <div><br>
+        <br>
+
+    <!-- Contacto -->
+        <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
             <input id="contacto" name="contacto" placeholder="Ingresa número de contacto" type="text" class="form-control"  tabindex="4">
-        </div><br>
+        </div>
+        @error('contacto')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Dirección -->
         <div class="mb-3">
             <label for="" class="form-label">Dirección de Residencia</label>
             <input id="direccion" name="direccion" placeholder="Ingresa la Dirección de Residencia" type="text" class="form-control"  tabindex="5">
-        </div><br>
-     
+        </div>
+        @error('direccion')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+    <!-- Fotografía -->
         <div>
-            <label for="" class="form-label">Foto</label>
+        <label for="" class="form-label">Foto</label>
             <div class="mb-3">
             <img id="imagenSeleccionada" style="max-height: 300px;">
             </div>
@@ -61,7 +80,7 @@
         </div>
 
          
-
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control" >
@@ -72,10 +91,10 @@
         
         <br><br>
 
-
+    <!-- Botones -->
         <div class="text-center">
-        <a href="/empleados" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
-        <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
+             <a href="/empleados" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
+             <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
         </div><br><br>
 
 

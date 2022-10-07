@@ -46,6 +46,19 @@ class GastoController extends Controller
      */
     public function store(Request $request)
     { 
+
+        $reglas= [
+            'descripcion' => 'required|max:80',
+            
+        ];
+        $mensaje = [
+            'descripcion.required' => 'El campo Descipción es requerido',
+            'descripcion.max' => 'El campo Descipción no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
         $gasto = new Gasto();
         $gasto->id = $request->get('id');
         $gasto->descripcion = $request->get('descripcion');
@@ -98,8 +111,21 @@ class GastoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gasto = Gasto::find($id);
 
+        $reglas= [
+            'descripcion' => 'required|max:80',
+            
+        ];
+        $mensaje = [
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
+      
+            
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+        $gasto = Gasto::find($id);
         $gasto->descripcion = $request->get('descripcion');
         $gasto->costo = $request->get('costo');
         $gasto->fecha = $request->get('fecha');

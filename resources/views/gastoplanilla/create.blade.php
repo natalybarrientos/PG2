@@ -19,46 +19,59 @@
 
     <form action="/gastoplanillas" method="POST" autocomplete="off">
     @csrf
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" placeholder="Ingresa una breve descripción del gasto." type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Costo -->
         <div class="mb-3">
             <label for="" class="form-label">Costo</label>
             <input id="costo" name="costo" placeholder="Ingresa el costo total del gasto."  type="text" class="form-control" tabindex="2">
         </div><br>
+
+    <!-- Fecha de gasto-->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Gasto</label>
             <input id="fecha" name="fecha" type="date" class="form-control" tabindex="3">
-        </div class="mb-3">
         <div><br>
+
+    <!-- Factura -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Factura o Vale emitido</label>
             <input id="factura" name="factura" placeholder="Ingresa el número de Factura o Vale emitido." type="text" class="form-control" tabindex="4">
         </div><br>
-        
+    
+    <!-- Tipo de gasto -->
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
-           @foreach ($tipogastos as $tipogasto)
-            @if ( $tipogasto->tipo == "Planilla")
-            <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
-            @endif
-          @endforeach
+            @foreach ($tipogastos as $tipogasto)
+                 @if ( $tipogasto->tipo == "Planilla")
+                 <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
+                 @endif
+            @endforeach
            </select>
         </div><br>
 
+    <!-- Empleado -->
         <div class="mb-3">
             <label for="" class="form-label">Empleado</label>
             <select name="empleado_id" class="form-control">
-           @foreach ($empleados as $empleado)
-            <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
-          @endforeach
+            @foreach ($empleados as $empleado)
+                <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
+            @endforeach
            </select>
         </div>
-             
         <br><br>
-
+    
+    <!-- Botones -->
         <div class="text-center">
         <a href="/gastoplanillas" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>

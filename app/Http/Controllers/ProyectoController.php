@@ -46,6 +46,20 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $reglas= [
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
         $proyectos = new Proyecto();
         //$proyectos->id = $request->get('id');
         $proyectos->descripcion = $request->get('descripcion');
@@ -99,6 +113,20 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $reglas= [
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+        
         $proyectos = Proyecto::find($id);
         $proyectos->descripcion = $request->get('descripcion');
         $proyectos->costo = $request->get('costo');

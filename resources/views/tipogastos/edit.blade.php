@@ -16,21 +16,32 @@
 
 <div class="container center col-md-5 col-md-offset-5" >
 
-
     <form action="/tipogastos/{{$tipogastos->id}}" method="POST" autocomplete="off">
     
     @csrf
     @method('PUT')
+
+    <!-- Tipo de gasto -->
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
             <input id="tipo" name="tipo" type="text" class="form-control" value="{{$tipogastos->tipo}}">
         </div>
+        @error('tipo')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$tipogastos->descripcion}}">
         </div>
-         <br><br>
-       
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br><br>
+    
+    <!-- Botones -->
         <div class="text-center">
         <a href="/tipogastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>

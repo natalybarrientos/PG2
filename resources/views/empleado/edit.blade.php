@@ -20,39 +20,67 @@
 
     @csrf
     @method('PUT')
+
+    <!-- Nombre de empleado -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre del Empleado</label>
             <input id="nombre" name="nombre" type="text" class="form-control" value="{{$empleado->nombre}}">
-        </div><br>
+        </div>
+        @error('nombre')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+     <!-- Documento de Identificación Personal -->   
         <div class="mb-3">
             <label for="" class="form-label">Documento de Identificación Personal</label>
             <input id="dpi" name="dpi" type="text" class="form-control" value="{{$empleado->dpi}}">
-        </div><br>
+        </div>
+        @error('dpi')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+     <!-- Fecha de Nacimiento -->   
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Nacimiento</label>
-            <input id="fecha" name="fecha" type="text" class="form-control" value="{{$empleado->fecha}}">
+            <input id="fecha" name="fecha" type="date"  class="form-control" value="{{$empleado->fecha}}">
         </div><br>
+
+    <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
             <input id="contacto" name="contacto" type="text" class="form-control" value="{{$empleado->contacto}}">
-        </div><br>
+        </div>
+        @error('contacto')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Dirección -->
         <div class="mb-3">
             <label for="" class="form-label">Dirección de Residencia</label>
             <input id="direccion" name="direccion" type="text" class="form-control" value="{{$empleado->direccion}}">
-        </div><br>
+        </div>
+        @error('direccion')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
+    <!-- Fotografía -->
         <div>
         <label for="" class="form-label">Foto</label>
             <div class="mb-3">
             <img src="/imagen/{{$empleado->imagen}}" width="300px">
-             </div>
-        <div class="mb-3">
-            <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
-            <span> | Cambiar Imagen</span>
-            <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$empleado->imagen}}">
-        </div><br>
+            </div>
+                <div class="mb-3">
+                 <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+                 <span> | Cambiar Imagen</span>
+                 <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$empleado->imagen}}">
+                </div><br>
         </div>
 
+    <!-- Estado -->
         <div class="mb-3>
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
@@ -60,6 +88,8 @@
             <option value="Inactivo" @if ($empleado->estado == 'Inactivo'  ) selected  @endif >Inactivo</option>
             </select>
         </div><br><br>
+
+    <!-- Botones -->
        
         <div class="text-center">
         <a href="/empleados" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>

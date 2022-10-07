@@ -19,22 +19,48 @@
 
     <form action="/clientes" method="POST" autocomplete="off">
     @csrf
+
+    <!-- Nombre de Cliente -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre Cliente</label>
             <input id="nombre" name="nombre" placeholder="Ingresa Nombre Completo del Cliente" type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('nombre')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- NIT -->
         <div class="mb-3">
             <label for="" class="form-label">NIT</label>
             <input id="nit" name="nit" placeholder="Ingresa Número de Identificación Tributaria -NIT-" type="text" class="form-control" tabindex="2">
-        </div><br>
+        </div>
+        @error('nit')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
             <input id="contacto" name="contacto" placeholder="Ingresa Número de Contacto" type="text" class="form-control" tabindex="3">
-        </div><br>
+        </div>
+        @error('contacto')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Dirección -->
         <div class="mb-3">
             <label for="" class="form-label">Dirección de Residencia</label>
             <input id="direccion" name="direccion" placeholder="Ingresa Dirección de Residencia" type="text" class="form-control" tabindex="4">
-        </div><br>
+        </div>
+        @error('direccion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
@@ -43,7 +69,8 @@
             </select>
             </div>             
             <br><br>
-       
+    
+    <!-- Botones -->
             <div class="text-center">
             <a href="/clientes" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
             <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>

@@ -40,6 +40,27 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+
+        $reglas= [
+            'nombre' => 'required|max:40',
+            'nit' => 'required|max:8',
+            'contacto' => 'required|max:8',
+            'direccion' => 'required|max:80',
+
+        ];
+        $mensaje = [
+            'nombre.required' => 'El campo Nombre es requerido',
+            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'nit.required' => 'El campo NIT es requerido',
+            'nit.max' => 'El Campo NIT no debe de ser mayor a :max dígitos',
+            'contacto.required' => 'El campo Contacto es requerido',
+            'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
+            'direccion.required' => 'El campo Dirección es requerido',
+            'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
         $clientes = new Cliente();
         $clientes->id = $request->get('id');
         $clientes->nombre = $request->get('nombre');
@@ -85,6 +106,27 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $reglas= [
+            'nombre' => 'required|max:40',
+            'nit' => 'required|max:8',
+            'contacto' => 'required|max:8',
+            'direccion' => 'required|max:80',
+
+        ];
+        $mensaje = [
+            'nombre.required' => 'El campo Nombre es requerido',
+            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'nit.required' => 'El campo NIT es requerido',
+            'nit.max' => 'El Campo NIT no debe de ser mayor a :max dígitos',
+            'contacto.required' => 'El campo Contacto es requerido',
+            'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
+            'direccion.required' => 'El campo Dirección es requerido',
+            'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
         $cliente = Cliente::find($id);
 
         $cliente->nombre = $request->get('nombre');

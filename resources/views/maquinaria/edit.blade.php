@@ -20,54 +20,74 @@
 
     @csrf
     @method('PUT')
+
+    <!-- Maquinaria -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre Maquinaria</label>
             <input id="nombre" name="nombre" type="text" class="form-control" value="{{$maquinaria->nombre}}">
         </div>
+        @error('nombre')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
             <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$maquinaria->descripcion}}">
         </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Precio -->
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
             <input id="precio" name="precio" type="text" class="form-control" value="{{$maquinaria->precio}}">
-        </div>
+        </div><br>
+
+    <!-- Fecha de Adquisición -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Adquisición</label>
             <input id="fechaadq" name="fechaadq" type="date" class="form-control" value="{{$maquinaria->fechaadq}}">
-        </div>
+        </div><br>
+
+    <!-- Fecha de baja -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Baja</label>
             <input id="fechabaja" name="fechabaja" type="date" class="form-control" value="{{$maquinaria->fechabaja}}">
-        </div>
-       
+        </div><br>
+    
+    <!-- Fotografía -->
         <div>
-        <label for="" class="form-label">Foto</label>
+        <label for="" class="form-label">Fotografía</label>
             <div class="mb-3">
             <img src="/imagen/{{$maquinaria->imagen}}" width="300px">
-             </div>
-        <div class="mb-3">
-            <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
-            <span> | Cambiar Imagen</span>
-            <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$maquinaria->imagen}}">
+            </div>
+                <div class="mb-3">
+                <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <span> | Cambiar Imagen</span>
+                <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$maquinaria->imagen}}">
+                </div><br>
         </div><br>
-        </div>
 
-
-
-
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
             <option value="Activo" @if ($maquinaria->estado == 'Activo'  ) selected  @endif >Activo</option>
             <option value="Inactivo" @if ($maquinaria->estado == 'Inactivo'  ) selected  @endif >Inactivo</option>
             </select>
-        </div><br><br>
-       
+        </div>
+        <br><br>
+    
+    <!-- Botones -->
         <div class="text-center">
         <a href="/maquinarias" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div><br><br>
+        </div>
+        <br><br>
 
     </form>
    

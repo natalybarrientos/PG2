@@ -20,18 +20,38 @@
     
     @csrf
     @method('PUT')
+
+    <!-- Usuario -->
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Usuario</label>
             <input id="name" name="name" type="text" class="form-control" value="{{$user->name}}">
-        </div><br>
+        </div>
+        @error('name')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+    
+    <!-- Correo electrónico -->
         <div class="mb-3">
             <label for="" class="form-label">Correo Electrónico</label>
             <input id="email" name="email" type="text" class="form-control" value="{{$user->email}}">
-        </div><br>
+        </div>
+        @error('email')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Contraseña -->
         <div class="mb-3">
             <label for="" class="form-label">Contraseña</label>
             <input id="password" name="password" type="password" class="form-control" >
-        </div><br>
+        </div>
+        @error('password')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control"> 
@@ -39,6 +59,8 @@
             <option value="Inactivo" @if ($user->estado == 'Inactivo'  ) selected  @endif>Inactivo</option>
             </select> 
         </div><br>
+
+    <!-- Rol -->
         <div class="mb-3">
             <label for="" class="form-label">Rol</label>
             <select name="rol" class="form-control">
@@ -48,10 +70,14 @@
         </div>
         <br><br>
 
+    <!-- Botones -->
         <div class="text-center">
         <a href="/users" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div> <br><br>
+        </div>
+        <br><br>
+
+        
     </form>
     </div>
 

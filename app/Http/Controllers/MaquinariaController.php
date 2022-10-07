@@ -40,8 +40,24 @@ class MaquinariaController extends Controller
      */
     public function store(Request $request)
     {
-        $maquinarias = new Maquinaria();
 
+        $reglas= [
+            'nombre' => 'required|max:40',
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'nombre.required' => 'El campo Nombre es requerido',
+            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
+        $maquinarias = new Maquinaria();
         $maquinarias->id = $request->get('id');
         $maquinarias->nombre = $request->get('nombre');
         $maquinarias->descripcion = $request->get('descripcion');
@@ -93,8 +109,23 @@ class MaquinariaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $maquinaria = Maquinaria::find($id);
 
+        $reglas= [
+            'nombre' => 'required|max:40',
+            'descripcion' => 'required|max:80',
+      
+
+        ];
+        $mensaje = [
+            'nombre.required' => 'El campo Nombre es requerido',
+            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo descripcion es requerido',
+            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+        $maquinaria = Maquinaria::find($id);
         $maquinaria->nombre = $request->get('nombre');
         $maquinaria->descripcion = $request->get('descripcion');
         $maquinaria->precio = $request->get('precio');

@@ -18,64 +18,73 @@
 
     <form action="/proyectos" method="POST" autocomplete="off">
     @csrf
+
+    <!-- Descripción -->
         <div class="mb-3">
             <label for="" class="form-label">Descripción </label>
             <input id="descripcion" name="descripcion" placeholder="Breve descripción del proyecto a ejecutar." type="text" class="form-control" tabindex="1">
-        </div><br>
+        </div>
+        @error('descripcion')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+    <!-- Costo -->
         <div class="mb-3">
             <label for="" class="form-label">Costo </label>
             <input id="costo" name="costo" placeholder="Ingresa el costo total del proyecto." type="text" class="form-control" tabindex="2">
         </div><br>
 
+    <!-- Cliente -->
         <div class="mb-3">
             <label for="" class="form-label">Cliente </label>
             <select name="cliente" class="form-control">
             @foreach ($clientes as $cliente)
-            @if ($cliente->estado != 'Inactivo')
-            <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
-            @endif
-          @endforeach
+                @if ($cliente->estado != 'Inactivo')
+                <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
+                @endif
+            @endforeach
            </select>
         </div><br>
 
+    <!-- Empleado -->
         <div class="mb-3">
             <label for="" class="form-label">Empleado </label>
             <select name="empleado" class="form-control">
             @foreach ($empleados as $empleado)
-            @if ($empleado->estado != 'Inactivo')
-            <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
+                @if ($empleado->estado != 'Inactivo')
+                <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
                 @endif
-          @endforeach
-           </select>
+            @endforeach
+            </select>
         </div><br>
-
+    
+    <!-- Fecha inicio -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Inicio del Proyecto </label>
             <input id="fechainicio" name="fechainicio" type="date" class="form-control" tabindex="5">
         </div><br>
+
+    <!-- Fecha de fin -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Fin del Proyecto</label>
             <input id="fechafin" name="fechafin" type="date" class="form-control" tabindex="6">
         </div><br>
 
+    <!-- Maquinaria -->
         <div class="form-group mb-3">
               <label for="select2Multiple">Maquinaria</label>
-              <select class="maquinaria form-control" name="maquinaria[]" multiple="multiple"
-                id="maquinaria">
-
-                @foreach ($maquinarias as $maquinaria)
-                @if ($maquinaria->estado != 'Inactivo')
-            <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
-            @endif
-            @endforeach             
+              <select class="maquinaria form-control" name="maquinaria[]" multiple="multiple" id="maquinaria">
+              @foreach ($maquinarias as $maquinaria)
+                     @if ($maquinaria->estado != 'Inactivo')
+                     <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
+                     @endif
+              @endforeach             
               </select>
         </div><br> 
-
-        
-         
         <br><br>
 
-
+    <!-- Botones -->
         <div class="text-center">
         <a href="/proyectos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
