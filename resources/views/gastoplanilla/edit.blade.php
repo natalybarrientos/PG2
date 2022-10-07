@@ -16,14 +16,14 @@
 
 <div class="container center col-md-5 col-md-offset-5">
 
-    <form action="/gastos/{{$gasto->id}}" method="POST" autocomplete="off">
+    <form action="/gastoplanillas/{{$gasto->id}}" method="POST" autocomplete="off">
 
 
     @csrf
     @method('PUT')
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
-            <input id="descripcion" name="descripcion" type="text" class="form-control" value="{{$gasto->descripcion}}">
+            <input id="descripcion" name="descripcion"  type="text" class="form-control" value="{{$gasto->descripcion}}">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Costo</label>
@@ -40,22 +40,12 @@
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
-           @foreach ($tipogastos as $tipogasto)
-          
+            @foreach ($tipogastos as $tipogasto)
+            @if ( $tipogasto->tipo == "Planilla")
             <option value="{{$tipogasto->id}}" @if ($tipogasto->id == $gasto->tipogastos_id  ) selected  @endif >{{$tipogasto->tipo}}</option>
+            @endif
           @endforeach
            </select>    
-        </div><br>
-
-        <div class="mb-3">
-            <label for="" class="form-label">Maquinaria</label>
-            <select name="maquinaria_id" class="form-control">
-           @foreach ($maquinarias as $maquinaria)
-           @if ($maquinaria->estado != 'Inactivo' || $maquinaria->id == $gasto->maquinaria_id )
-            <option value="{{$maquinaria->id}}" @if ($maquinaria->id == $gasto->maquinaria_id  ) selected  @endif >{{$maquinaria->nombre}}</option>
-             @endif
-          @endforeach
-           </select>     
         </div><br>
 
         <div class="mb-3">
@@ -78,7 +68,7 @@
 
 
     </form>
-
+ 
 </div>
 @stop
 

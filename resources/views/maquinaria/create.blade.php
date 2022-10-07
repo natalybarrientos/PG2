@@ -13,21 +13,22 @@
 
 <font face="Courier New">
 @section('content')
+<div class="container center col-md-5 col-md-offset-5" >
 
 
-    <form action="/maquinarias" method="POST" enctype="multipart/form-data">
+    <form action="/maquinarias" method="POST" enctype="multipart/form-data" autocomplete="off">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre Maquinaria</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
+            <input id="nombre" name="nombre" placeholder="Ingresa el nombre de la maquinaria." type="text" class="form-control" tabindex="1">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
-            <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
+            <input id="descripcion" name="descripcion" placeholder="Ingresa breve descripción de la maquinaria." type="text" class="form-control" tabindex="2">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="text" class="form-control" tabindex="3">
+            <input id="precio" name="precio" placeholder="Ingresa el costo total de la maquinaria." type="text" class="form-control" tabindex="3">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Adquisición</label>
@@ -37,13 +38,22 @@
             <label for="" class="form-label">Fecha de Baja</label>
             <input id="fechabaja" name="fechabaja" type="date" class="form-control" tabindex="5">
         </div><br>
-        <div class="mb-3">
+
+        <div>
+        <label for="" class="form-label">Foto</label>
+            <div class="mb-3">
             <img id="imagenSeleccionada" style="max-height: 300px;">
+            </div>
+                <div class="mb-3">
+                <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <span> | Seleccionar Imagen </span>
+                <input id="imagen" name="imagen" type="file" class="sr-only">
+                </div><br>
         </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Foto</label>
-            <input id="imagen" name="imagen" type="file" class="form-control" tabindex="6">
-        </div><br>
+
+
+
+
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
@@ -60,6 +70,8 @@
         </div><br><br>
 
     </form>
+   
+</div>
 @stop
 
 @section('css')

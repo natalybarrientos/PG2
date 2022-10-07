@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gasto;
 use App\Models\Tipogastos;
-use App\Models\Maquinaria;
 use App\Models\Empleado;
 
 
-class GastoController extends Controller
+class GastoplanillaController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -22,7 +21,7 @@ class GastoController extends Controller
     public function index()
     {
         $gastos = Gasto::all();
-        return view('gasto.index', compact('gastos'));
+        return view('gastoplanilla.index', compact('gastos'));
     }
 
     /**
@@ -32,10 +31,10 @@ class GastoController extends Controller
      */
     public function create()
     {
-        $maquinarias = Maquinaria::all();
+       
         $tipogastos = Tipogastos::all();
         $empleados = Empleado::all();
-        return view('gasto.create', compact('tipogastos','maquinarias','empleados') );
+        return view('gastoplanilla.create', compact('tipogastos','empleados') );
     }
 
     /**
@@ -53,13 +52,12 @@ class GastoController extends Controller
         $gasto->fecha = $request->get('fecha');
         $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
-        $gasto->maquinaria_id = $request->get('maquinaria_id');
         $gasto->empleado_id = $request->get('empleado_id');
 
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
         //dd($gasto);
         $gastos = Gasto::all();
-        return view('gasto.index')->with('gastos',$gastos);
+        return view('gastoplanilla.index')->with('gastos',$gastos);
     }
 
     /**
@@ -81,10 +79,10 @@ class GastoController extends Controller
      */
     public function edit($id)
     {   $tipogastos = Tipogastos::all();
-        $maquinarias = Maquinaria::all();
+       
         $empleados = Empleado::all();
         $gasto = Gasto::find($id);
-        return view('gasto.edit', compact('gasto','tipogastos', 'maquinarias', 'empleados') );
+        return view('gastoplanilla.edit', compact('gasto','tipogastos', 'empleados') );
 
         
     }
@@ -105,13 +103,13 @@ class GastoController extends Controller
         $gasto->fecha = $request->get('fecha');
         $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
-        $gasto->maquinaria_id = $request->get('maquinaria_id');
+      
         $gasto->empleado_id = $request->get('empleado_id');
 
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
 
         
-        return redirect('/gastos'); //Para redirigir a index, despues de guardar.
+        return redirect('/gastoplanillas'); //Para redirigir a index, despues de guardar.
     }
 
     /**

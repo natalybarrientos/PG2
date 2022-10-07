@@ -14,16 +14,17 @@
 <font face="Courier New">
 @section('content')
 
+<div class="container center col-md-5 col-md-offset-5" >
 
-    <form action="/tipogastos" method="POST">
+    <form action="/tipogastos" method="POST" autocomplete="off">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Gasto</label>
-            <input id="tipo" name="tipo" type="text" class="form-control" tabindex="1">
+            <input id="tipo" name="tipo" placeholder="Ingresa el Tipo de Gasto." type="text" class="form-control" tabindex="1">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
-            <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="2">
+            <input id="descripcion" name="descripcion" placeholder="Ingresa breve descripción del tipo de gasto." type="text" class="form-control" tabindex="2">
         </div>             
             
             <br><br>
@@ -34,6 +35,8 @@
             </div>
 
     </form>
+
+</div>
 @stop
 
 @section('css')

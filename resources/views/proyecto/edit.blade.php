@@ -14,9 +14,9 @@
 <font face="Courier New">
 @section('content')
 
+<div class="container center col-md-5 col-md-offset-5">
 
-
-    <form action="/proyectos/{{$proyecto->id}}" method="POST">
+    <form action="/proyectos/{{$proyecto->id}}" method="POST" autocomplete="off">
 
     @csrf
     @method('PUT')
@@ -83,6 +83,8 @@
 
 
     </form>
+
+</div>
 
 @stop
 

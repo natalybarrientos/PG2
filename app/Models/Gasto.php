@@ -16,4 +16,8 @@ class Gasto extends Model
     public function maquinarias(){
         return $this->belongsTo('App\Models\Maquinaria', 'maquinaria_id');//Un proyecto tiene una maquinaria
     }
+
+    public function empleados(){
+        return $this->belongsTo('App\Models\Empleado', 'empleado_id');//Un proyecto tiene un empleado
+    }
 }

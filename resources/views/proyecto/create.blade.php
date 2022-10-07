@@ -13,17 +13,18 @@
 
 <font face="Courier New">
 @section('content')
+<div class="container center col-md-5 col-md-offset-5" >
 
 
-    <form action="/proyectos" method="POST">
+    <form action="/proyectos" method="POST" autocomplete="off">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Descripción </label>
-            <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="1">
+            <input id="descripcion" name="descripcion" placeholder="Breve descripción del proyecto a ejecutar." type="text" class="form-control" tabindex="1">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Costo </label>
-            <input id="costo" name="costo" type="text" class="form-control" tabindex="2">
+            <input id="costo" name="costo" placeholder="Ingresa el costo total del proyecto." type="text" class="form-control" tabindex="2">
         </div><br>
 
         <div class="mb-3">
@@ -81,6 +82,8 @@
         </div> <br><br>
 
     </form>
+
+</div>
 @stop
 
 @section('css')

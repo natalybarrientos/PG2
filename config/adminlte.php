@@ -88,8 +88,8 @@ return [
             'path' => 'vendor/adminlte/dist/img/LOGOMULTI.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 80,
+            'height' => 80,
         ],
     ],
 
@@ -126,7 +126,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -314,8 +314,24 @@ return [
         [
             'text'       => ' Gastos',
             'icon'       => 'fas fa-hand-holding-usd',
-            'url'        => 'gastos',
+
+            'submenu'    =>[
+
+                [
+                    'text'       => 'Gasto-Maquinaria',
+                    'url'        => 'gastos',
+                ],
+                [
+                    'text'       => 'Gasto-Planilla',
+                    'url'        => 'gastoplanillas',
+                ],
+
+
+             ],
         ],
+
+
+
         [
             'text'       => ' Proyectos',
             'icon'       => 'fas fa-donate',

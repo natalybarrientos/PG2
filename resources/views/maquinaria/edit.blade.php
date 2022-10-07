@@ -14,8 +14,9 @@
 <font face="Courier New">
 @section('content')
 
+<div class="container center col-md-5 col-md-offset-5">
 
-    <form action="/maquinarias/{{$maquinaria->id}}" method="POST" enctype="multipart/form-data">
+    <form action="/maquinarias/{{$maquinaria->id}}" method="POST" enctype="multipart/form-data" autocomplete="off">
 
     @csrf
     @method('PUT')
@@ -39,13 +40,21 @@
             <label for="" class="form-label">Fecha de Baja</label>
             <input id="fechabaja" name="fechabaja" type="date" class="form-control" value="{{$maquinaria->fechabaja}}">
         </div>
+       
+        <div>
+        <label for="" class="form-label">Foto</label>
+            <div class="mb-3">
+            <img src="/imagen/{{$maquinaria->imagen}}" width="300px">
+             </div>
         <div class="mb-3">
-        <img src="/imagen/{{$maquinaria->imagen}}" width="20%">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Foto</label>
-            <input id="imagen" name="imagen" type="file" class="form-control" value="{{$maquinaria->imagen}}">
+            <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+            <span> | Cambiar Imagen</span>
+            <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$maquinaria->imagen}}">
         </div><br>
+        </div>
+
+
+
 
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
@@ -61,7 +70,8 @@
         </div><br><br>
 
     </form>
-
+   
+</div>
 @stop
 
 @section('css')

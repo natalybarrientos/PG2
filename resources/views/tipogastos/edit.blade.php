@@ -14,9 +14,10 @@
 <font face="Courier New">
 @section('content')
 
+<div class="container center col-md-5 col-md-offset-5" >
 
 
-    <form action="/tipogastos/{{$tipogastos->id}}" method="POST">
+    <form action="/tipogastos/{{$tipogastos->id}}" method="POST" autocomplete="off">
     
     @csrf
     @method('PUT')
@@ -33,10 +34,12 @@
         <div class="text-center">
         <a href="/tipogastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div>
+        </div><br><br>
 
 
     </form>
+    
+</div>
 @stop
 
 @section('css')

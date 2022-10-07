@@ -6,7 +6,7 @@
 
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> R E G I S T R O  D E  </h1>
-<h1 class="text-dark text-center font-medium"> G A S T O - M A Q U I N A R I A </h1>
+<h1 class="text-dark text-center font-medium"> G A S T O - P L A N I L L A </h1>
 <br>
 <br>
 </font>   
@@ -17,7 +17,7 @@
 
 <div class="container center col-md-5 col-md-offset-5">
 
-    <form action="/gastos" method="POST" autocomplete="off">
+    <form action="/gastoplanillas" method="POST" autocomplete="off">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Descripción</label>
@@ -25,7 +25,7 @@
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Costo</label>
-            <input id="costo" name="costo" type="text" placeholder="Ingresa el costo total del gasto." class="form-control" tabindex="2">
+            <input id="costo" name="costo" placeholder="Ingresa el costo total del gasto."  type="text" class="form-control" tabindex="2">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Gasto</label>
@@ -41,16 +41,9 @@
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
            @foreach ($tipogastos as $tipogasto)
+            @if ( $tipogasto->tipo == "Planilla")
             <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
-          @endforeach
-           </select>
-        </div><br>
-
-        <div class="mb-3">
-            <label for="" class="form-label">Maquinaria</label>
-            <select name="maquinaria_id" class="form-control">
-           @foreach ($maquinarias as $maquinaria)
-            <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
+            @endif
           @endforeach
            </select>
         </div><br>
@@ -67,14 +60,14 @@
         <br><br>
 
         <div class="text-center">
-        <a href="/gastos" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
+        <a href="/gastoplanillas" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
         </div><br><br>
 
 
     </form>
 
-  
+   
 </div>
 @stop
 

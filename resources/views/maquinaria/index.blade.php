@@ -8,7 +8,9 @@
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D A S </h1>
 <br>
 <br>
+</font>
 @stop
+
 
 <font face="Courier New">
 @section('content')

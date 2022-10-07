@@ -8,25 +8,25 @@
 <h1 class="text-dark text-center font-medium"> U S U A R I O  </h1>
 <br>
 <br>   
-   
+</font> 
 @stop
 <font face="Courier New">
 @section('content')
 
-
-    <form action="/users" method="POST">
+<div class="container center col-md-5 col-md-offset-5" >
+    <form action="/users" method="POST" autocomplete="off">
     @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Usuario</label>
-            <input id="name" name="name" type="text" class="form-control" tabindex="1">
+            <input id="name" name="name" placeholder="Ingresa Nombre y Apellido del usuario." type="text" class="form-control" tabindex="1">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Correo Electrónico</label>
-            <input id="email" name="email" type="text" class="form-control" tabindex="2">
+            <input id="email" name="email" placeholder="Ingresa correo electrónico." type="text" class="form-control" tabindex="2">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Contraseña</label>
-            <input id="password" name="password" type="password" class="form-control" tabindex="3">
+            <input id="password" name="password" placeholder="Ingresa contraseña de 8 dígitos." type="password" class="form-control" tabindex="3">
         </div><br>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
@@ -48,8 +48,11 @@
         <div class="text-center">
         <a href="/users" class="btn btn-primary" tabindex="5"><i class="fa-solid fa-xmark"></i>   Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4"><i class="fa-solid fa-floppy-disk"></i>    Guardar</button>
-        </div>
+        </div> <br><br>
     </form>
+
+    </div>
+
 @stop
 
 @section('css')

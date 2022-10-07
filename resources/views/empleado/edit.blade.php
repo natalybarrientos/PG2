@@ -11,9 +11,12 @@
 </font>  
 @stop
 
+
 <font face="Courier New">
 @section('content')
-    <form action="/empleados/{{$empleado->id}}" method="POST" enctype="multipart/form-data">
+
+<div class="container center col-md-5 col-md-offset-5">
+    <form action="/empleados/{{$empleado->id}}" method="POST" enctype="multipart/form-data" autocomplete="off">
 
     @csrf
     @method('PUT')
@@ -37,13 +40,18 @@
             <label for="" class="form-label">Dirección de Residencia</label>
             <input id="direccion" name="direccion" type="text" class="form-control" value="{{$empleado->direccion}}">
         </div><br>
+
+        <div>
+        <label for="" class="form-label">Foto</label>
+            <div class="mb-3">
+            <img src="/imagen/{{$empleado->imagen}}" width="300px">
+             </div>
         <div class="mb-3">
-        <img src="/imagen/{{$empleado->imagen}}" width="20%">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Foto</label>
-            <input id="imagen" name="imagen" type="file" class="form-control" value="{{$empleado->imagen}}">
+            <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
+            <span> | Cambiar Imagen</span>
+            <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$empleado->imagen}}">
         </div><br>
+        </div>
 
         <div class="mb-3>
             <label for="" class="form-label">Estado</label>
@@ -60,6 +68,8 @@
         <br><br>
 
     </form>
+
+    </div>
 
 @stop
 

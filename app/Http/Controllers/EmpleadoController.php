@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empleado;
+use Carbon\Carbon;
 
 
 class EmpleadoController extends Controller
@@ -29,7 +30,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        return view("empleado.create");
+        $fecha = Carbon::now()->format('Y-m-d');
+        return view("empleado.create")->with('fecha',$fecha);;
     }
 
     /**
@@ -40,6 +42,22 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+
+        $reglas= [
+            'nombre' => 'required|max:50',
+            'dpi' => 'required|max:12',
+        ];
+        $mensaje = [
+            'nombre.required' => 'El campo nombre es requerido',
+            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max',
+            'dpi.required' => 'El campo DPI es requerido',
+            'dpi.max' => 'El Campo DPI no debe de ser mayor a :max',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
+
         $empleados = new Empleado();
         $empleados->id = $request->get('id');
         $empleados->nombre = $request->get('nombre');
