@@ -42,14 +42,22 @@
     <!-- Precio -->
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" placeholder="Ingresa el costo total de la maquinaria." type="text" class="form-control" tabindex="3">
-        </div><br>
+            <input id="precio" name="precio" placeholder="Ingresa el costo total de la maquinaria." type="number" step="0.01" min="0" class="form-control" tabindex="3">
+        </div>
+        @error('precio')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha Adquisición -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Adquisición</label>
-            <input id="fechaadq" name="fechaadq" type="date" class="form-control" tabindex="4">
-        </div><br>
+            <input id="fechaadq" name="fechaadq" type="date" max="{{$fecha}}" class="form-control" tabindex="4">
+        </div>
+        @error('fechaadq')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de baja -->
         <div class="mb-3">
@@ -67,9 +75,11 @@
                 <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
                 <span> | Seleccionar Imagen </span>
                 <input id="imagen" name="imagen" type="file" class="sr-only">
-                </div><br>
+                </div>
         </div>
-
+      
+        <br>
+        
     <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>

@@ -33,7 +33,7 @@
     <!-- Documento de Identificación Personal -->  
         <div class="mb-3">
             <label for="" class="form-label">Documento de Identificación Personal</label>
-            <input id="dpi" name="dpi" type="text" placeholder="Ingresa número de DPI sin espacios" class="form-control" tabindex="2">
+            <input id="dpi" name="dpi" type="number" placeholder="Ingresa número de DPI sin espacios" class="form-control" tabindex="2">
         </div>
         @error('dpi')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -44,13 +44,16 @@
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Nacimiento</label>
             <input id="fecha" name="fecha"  type="date" max="{{$fecha}}" class="form-control"  tabindex="3">
-        </div class="mb-3">
+        </div>
+        @error('fecha')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <br>
 
     <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
-            <input id="contacto" name="contacto" placeholder="Ingresa número de contacto" type="text" class="form-control"  tabindex="4">
+            <input id="contacto" name="contacto" placeholder="Ingresa número de contacto" type="number" class="form-control"  tabindex="4">
         </div>
         @error('contacto')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -66,6 +69,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <br>
+        
     <!-- Fotografía -->
         <div>
         <label for="" class="form-label">Foto</label>
@@ -76,16 +80,19 @@
                 <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
                 <span> | Seleccionar Imagen </span>
                 <input id="imagen" name="imagen" type="file" class="sr-only">
-                </div><br>
+                </div>
         </div>
-
+        @error('imagen')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
          
     <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control" >
-            <option value="Activo">Activo</option>
-            <option value="Inactivo" selected>Inactivo</option>
+            <option value="Activo" selected >Activo</option>
+            <option value="Inactivo">Inactivo</option>
             </select>
         </div>
         

@@ -15,12 +15,12 @@ class CreateProyectosTable extends Migration
     {
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion',80);
-            $table->decimal('costo',8,2);
+            $table->string('descripcion',150);
+            $table->decimal('costo',10,2);
             $table->foreignId('cliente_id')->references('id')->on('clientes')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('empleado_id')->references('id')->on('empleados')->nullable()->constrained()->onDelete('cascade');
-            $table->date('fechainicio',8);
-            $table->date('fechafin',80)->nullable();
+            $table->date('fechainicio');
+            $table->date('fechafin')->nullable();
             $table->enum('estado',['Iniciado','Pendiente','Finalizado'])->default('Iniciado');
             $table->timestamps();
             

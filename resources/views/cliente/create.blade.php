@@ -43,7 +43,7 @@
     <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
-            <input id="contacto" name="contacto" placeholder="Ingresa Número de Contacto" type="text" class="form-control" tabindex="3">
+            <input id="contacto" name="contacto" placeholder="Ingresa Número de Contacto" type="number" class="form-control" tabindex="3">
         </div>
         @error('contacto')
          <div class="alert alert-danger">{{ $message }}</div>
@@ -64,8 +64,8 @@
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select name="estado" class="form-control">
-            <option value="Activo">Activo</option>
-            <option value="Inactivo" selected>Inactivo</option>
+            <option value="Activo" selected>Activo</option>
+            <option value="Inactivo">Inactivo</option>
             </select>
             </div>             
             <br><br>

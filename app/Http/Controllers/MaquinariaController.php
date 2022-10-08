@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Maquinaria;
+use Carbon\Carbon;
 
 class MaquinariaController extends Controller
 {
@@ -29,7 +30,9 @@ class MaquinariaController extends Controller
      */
     public function create()
     {
-        return view('maquinaria.create');
+        $fecha = Carbon::now()->format('Y-m-d');
+        return view("maquinaria.create")->with('fecha',$fecha);
+
     }
 
     /**
@@ -42,8 +45,11 @@ class MaquinariaController extends Controller
     {
 
         $reglas= [
-            'nombre' => 'required|max:40',
-            'descripcion' => 'required|max:80',
+            'nombre' => 'required|max:80',
+            'descripcion' => 'required|max:150',
+            'precio' => 'required|max:10',
+            'fechaadq' => 'required',
+            'imagen' => 'required',
       
 
         ];
@@ -52,6 +58,11 @@ class MaquinariaController extends Controller
             'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
             'descripcion.required' => 'El campo descripcion es requerido',
             'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'precio.required' => 'El campo Precio es requerido',
+            'precio.max' => 'El Campo Precio no debe de ser mayor a :max caracteres',
+            'fechaadq.required' => 'El campo Fecha de Adquisición es requerido',
+            'fechaadq.max' => 'El Campo Fecha de Adquisición  no debe de ser mayor a :max caracteres',
+            'imagen.required' => 'El campo Imagen es requerido',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
@@ -96,8 +107,10 @@ class MaquinariaController extends Controller
      */
     public function edit($id)
     {
+        $fecha = Carbon::now()->format('Y-m-d');
+
         $maquinaria = Maquinaria::find($id);
-        return view('maquinaria.edit')->with('maquinaria',$maquinaria);
+        return view('maquinaria.edit', compact( 'maquinaria', 'fecha') );
     }
 
     /**
@@ -110,9 +123,13 @@ class MaquinariaController extends Controller
     public function update(Request $request, $id)
     {
 
+       
         $reglas= [
-            'nombre' => 'required|max:40',
-            'descripcion' => 'required|max:80',
+            'nombre' => 'required|max:80',
+            'descripcion' => 'required|max:150',
+            'precio' => 'required|max:10',
+            'fechaadq' => 'required',
+            'imagen' => 'required',
       
 
         ];
@@ -121,9 +138,15 @@ class MaquinariaController extends Controller
             'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
             'descripcion.required' => 'El campo descripcion es requerido',
             'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'precio.required' => 'El campo Precio es requerido',
+            'precio.max' => 'El Campo Precio no debe de ser mayor a :max caracteres',
+            'fechaadq.required' => 'El campo Fecha de Adquisición es requerido',
+            'fechaadq.max' => 'El Campo Fecha de Adquisición  no debe de ser mayor a :max caracteres',
+            'imagen.required' => 'El campo Imagen es requerido',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+        
 
         $maquinaria = Maquinaria::find($id);
         $maquinaria->nombre = $request->get('nombre');

@@ -44,14 +44,22 @@
     <!-- Precio -->
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="text" class="form-control" value="{{$maquinaria->precio}}">
-        </div><br>
+            <input id="precio" name="precio" type="number" step="0.01" min="0" class="form-control" value="{{$maquinaria->precio}}">
+        </div>
+        @error('precio')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de Adquisición -->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Adquisición</label>
-            <input id="fechaadq" name="fechaadq" type="date" class="form-control" value="{{$maquinaria->fechaadq}}">
-        </div><br>
+            <input id="fechaadq" name="fechaadq" type="date" max="{{$fecha}}" class="form-control" value="{{$maquinaria->fechaadq}}">
+        </div>
+        @error('fechaadq')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de baja -->
         <div class="mb-3">
@@ -70,8 +78,12 @@
                 <span> | Cambiar Imagen</span>
                 <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$maquinaria->imagen}}">
                 </div><br>
-        </div><br>
-
+        </div>
+        @error('imagen')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+        
     <!-- Estado -->
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>

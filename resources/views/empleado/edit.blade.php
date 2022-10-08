@@ -34,7 +34,7 @@
      <!-- Documento de Identificación Personal -->   
         <div class="mb-3">
             <label for="" class="form-label">Documento de Identificación Personal</label>
-            <input id="dpi" name="dpi" type="text" class="form-control" value="{{$empleado->dpi}}">
+            <input id="dpi" name="dpi" type="number" class="form-control" value="{{$empleado->dpi}}">
         </div>
         @error('dpi')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -44,13 +44,17 @@
      <!-- Fecha de Nacimiento -->   
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Nacimiento</label>
-            <input id="fecha" name="fecha" type="date"  class="form-control" value="{{$empleado->fecha}}">
-        </div><br>
+            <input id="fecha" name="fecha" type="date" max="{{$fecha}}" class="form-control" value="{{$empleado->fecha}}">
+        </div>
+        @error('fecha')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
-            <input id="contacto" name="contacto" type="text" class="form-control" value="{{$empleado->contacto}}">
+            <input id="contacto" name="contacto" type="number" class="form-control" value="{{$empleado->contacto}}">
         </div>
         @error('contacto')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -77,8 +81,12 @@
                  <label for="imagen" class="btn btn-success"><i class="fa-solid fa-arrow-up-from-bracket"></i>
                  <span> | Cambiar Imagen</span>
                  <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$empleado->imagen}}">
-                </div><br>
+                </div>
         </div>
+        @error('imagen')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Estado -->
         <div class="mb-3>

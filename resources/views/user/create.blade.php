@@ -40,7 +40,7 @@
     <!-- Contraseña -->
         <div class="mb-3">
             <label for="" class="form-label">Contraseña</label>
-            <input id="password" name="password" placeholder="Ingresa contraseña de 8 dígitos." type="password" class="form-control" tabindex="3">
+            <input id="password" name="password" placeholder="Ingresa contraseña de 8 dígitos como mínimo." type="password" class="form-control" tabindex="3">
         </div>
         @error('password')
          <div class="alert alert-danger">{{ $message }}</div>

@@ -41,8 +41,8 @@ class TipogastosController extends Controller
     {
 
         $reglas= [
-            'tipo' => 'required|max:30',
-            'descripcion' => 'required|max:80',
+            'tipo' => 'required|max:40',
+            'descripcion' => 'required|max:150',
       
 
         ];
@@ -101,8 +101,8 @@ class TipogastosController extends Controller
     {
 
         $reglas= [
-            'tipo' => 'required|max:30',
-            'descripcion' => 'required|max:80',
+            'tipo' => 'required|max:40',
+            'descripcion' => 'required|max:150',
       
 
         ];

@@ -16,8 +16,8 @@ class CreateMaquinariasTable extends Migration
         Schema::create('maquinarias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',40);
-            $table->string('descripcion',80);
-            $table->decimal('precio',8,2);
+            $table->string('descripcion',150);
+            $table->decimal('precio',10,2);
             $table->date('fechaadq');
             $table->date('fechabaja')->nullable();
             $table->string('imagen');

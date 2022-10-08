@@ -44,11 +44,9 @@
     <!-- Contraseña -->
         <div class="mb-3">
             <label for="" class="form-label">Contraseña</label>
-            <input id="password" name="password" type="password" class="form-control" >
+            <input id="password" name="password" type="password" class="form-control" value="{{$user->email}}">
         </div>
-        @error('password')
-         <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+       
         <br>
 
     <!-- Estado -->

@@ -40,12 +40,11 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-
         $reglas= [
-            'nombre' => 'required|max:40',
+            'nombre' => 'required|max:80',
             'nit' => 'required|max:8',
             'contacto' => 'required|max:8',
-            'direccion' => 'required|max:80',
+            'direccion' => 'required|max:150',
 
         ];
         $mensaje = [
@@ -107,10 +106,10 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $reglas= [
-            'nombre' => 'required|max:40',
+            'nombre' => 'required|max:80',
             'nit' => 'required|max:8',
             'contacto' => 'required|max:8',
-            'direccion' => 'required|max:80',
+            'direccion' => 'required|max:150',
 
         ];
         $mensaje = [

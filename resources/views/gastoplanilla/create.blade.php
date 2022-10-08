@@ -33,13 +33,17 @@
     <!-- Costo -->
         <div class="mb-3">
             <label for="" class="form-label">Costo</label>
-            <input id="costo" name="costo" placeholder="Ingresa el costo total del gasto."  type="text" class="form-control" tabindex="2">
-        </div><br>
+            <input id="costo" name="costo" placeholder="Ingresa el costo total del gasto."  type="number" step="0.01" min="0" class="form-control" tabindex="2">
+        </div>
+        @error('costo')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de gasto-->
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Gasto</label>
-            <input id="fecha" name="fecha" type="date" class="form-control" tabindex="3">
+            <input id="fecha" name="fecha" type="date" max="{{$fecha}}" class="form-control" tabindex="3">
         <div><br>
 
     <!-- Factura -->

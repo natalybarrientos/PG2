@@ -32,8 +32,12 @@
     <!-- Costo -->
         <div class="mb-3">
             <label for="" class="form-label">Costo </label>
-            <input id="costo" name="costo" placeholder="Ingresa el costo total del proyecto." type="text" class="form-control" tabindex="2">
-        </div><br>
+            <input id="costo" name="costo" placeholder="Ingresa el costo total del proyecto." type="number" step="0.01" min="0" class="form-control" tabindex="2">
+        </div>
+        @error('costo')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Cliente -->
         <div class="mb-3">
@@ -63,7 +67,11 @@
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Inicio del Proyecto </label>
             <input id="fechainicio" name="fechainicio" type="date" class="form-control" tabindex="5">
-        </div><br>
+        </div>
+        @error('fechainicio')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de fin -->
         <div class="mb-3">

@@ -48,16 +48,23 @@ class ProyectoController extends Controller
     {
         
         $reglas= [
-            'descripcion' => 'required|max:80',
+            'descripcion' => 'required|max:150',
+            'costo' => 'required|max:10',
+            'fechainicio' => 'required',
       
 
         ];
         $mensaje = [
             'descripcion.required' => 'El campo descripcion es requerido',
             'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'costo.required' => 'El campo Costo es requerido',
+            'costo.max' => 'El Campo Costo no debe de ser mayor a :max caracteres',
+            'fechainicio.required' => 'El campo Fecha de Inicio es requerido',
+            
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+
 
 
         $proyectos = new Proyecto();
@@ -115,13 +122,19 @@ class ProyectoController extends Controller
     {
 
         $reglas= [
-            'descripcion' => 'required|max:80',
+            'descripcion' => 'required|max:150',
+            'costo' => 'required|max:10',
+            'fechainicio' => 'required',
       
 
         ];
         $mensaje = [
             'descripcion.required' => 'El campo descripcion es requerido',
             'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'costo.required' => 'El campo Costo es requerido',
+            'costo.max' => 'El Campo Costo no debe de ser mayor a :max caracteres',
+            'fechainicio.required' => 'El campo Fecha de Inicio es requerido',
+            
         ];
 
         $validated = $request->validate($reglas,$mensaje);

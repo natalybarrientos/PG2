@@ -15,8 +15,8 @@ class CreateTipogastosTable extends Migration
     {
         Schema::create('tipogastos', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo',30);
-            $table->string('descripcion',80)->nullable();
+            $table->string('tipo',40);
+            $table->string('descripcion',150);
             $table->timestamps();
         });
     }

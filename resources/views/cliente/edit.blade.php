@@ -45,7 +45,7 @@
     <!-- Contacto -->
         <div class="mb-3">
             <label for="" class="form-label">Número de Contacto</label>
-            <input id="contacto" name="contacto" type="text" class="form-control" value="{{$cliente->contacto}}">
+            <input id="contacto" name="contacto" type="number" class="form-control" value="{{$cliente->contacto}}">
         </div>
         @error('contacto')
          <div class="alert alert-danger">{{ $message }}</div>

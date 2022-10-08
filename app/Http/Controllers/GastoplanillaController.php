@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Gasto;
 use App\Models\Tipogastos;
 use App\Models\Empleado;
+use Carbon\Carbon;
 
 
 class GastoplanillaController extends Controller
@@ -31,10 +32,13 @@ class GastoplanillaController extends Controller
      */
     public function create()
     {
+
+        $fecha = Carbon::now()->format('Y-m-d');
+        //return view("gastoplanilla.create")->with('fecha',$fecha);
        
         $tipogastos = Tipogastos::all();
         $empleados = Empleado::all();
-        return view('gastoplanilla.create', compact('tipogastos','empleados') );
+        return view('gastoplanilla.create', compact('tipogastos','empleados','fecha') );
     }
 
     /**
@@ -47,11 +51,14 @@ class GastoplanillaController extends Controller
     { 
         $reglas= [
             'descripcion' => 'required|max:80',
+            'costo' => 'required|max:10',
             
         ];
         $mensaje = [
             'descripcion.required' => 'El campo Descipción es requerido',
             'descripcion.max' => 'El campo Descipción no debe de ser mayor a :max caracteres',
+            'costo.required' => 'El campo Costo es requerido',
+            'costo.max' => 'El campo Costo no debe ser mayor a :max dígitos',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
@@ -89,11 +96,14 @@ class GastoplanillaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   $tipogastos = Tipogastos::all();
+
+    {   
+        $fecha = Carbon::now()->format('Y-m-d');
+        $tipogastos = Tipogastos::all();
        
         $empleados = Empleado::all();
         $gasto = Gasto::find($id);
-        return view('gastoplanilla.edit', compact('gasto','tipogastos', 'empleados') );
+        return view('gastoplanilla.edit', compact('gasto','tipogastos', 'empleados', 'fecha') );
 
         
     }
@@ -110,11 +120,14 @@ class GastoplanillaController extends Controller
 
         $reglas= [
             'descripcion' => 'required|max:80',
+            'costo' => 'required|max:10',
             
         ];
         $mensaje = [
             'descripcion.required' => 'El campo Descipción es requerido',
             'descripcion.max' => 'El campo Descipción no debe de ser mayor a :max caracteres',
+            'costo.required' => 'El campo Costo es requerido',
+            'costo.max' => 'El campo Costo no debe ser mayor a :max dígitos',
         ];
 
         $validated = $request->validate($reglas,$mensaje);

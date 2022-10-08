@@ -17,13 +17,13 @@ class CreateGastosTable extends Migration
         
         Schema::create('gastos', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion',80);
-            $table->decimal('costo',8,2);
+            $table->string('descripcion',150);
+            $table->decimal('costo',10,2);
             $table->date('fecha')->nullable();
-            $table->string('factura',20)->nullable();
+            $table->string('factura',30)->nullable();
             $table->foreignId('tipogastos_id')->references('id')->on('tipogastos')->constrained()->onDelete('cascade');
-            $table->foreignId('maquinaria_id')->references('id')->on('maquinarias')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('empleado_id')->references('id')->on('empleados')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('maquinaria_id')->nullable()->references('id')->on('maquinarias')->constrained()->onDelete('cascade');
+            $table->foreignId('empleado_id')->nullable()->references('id')->on('empleados')->constrained()->onDelete('cascade');
             $table->timestamps();
 
         });

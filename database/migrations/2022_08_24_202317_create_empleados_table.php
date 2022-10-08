@@ -16,11 +16,11 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',40);
+            $table->string('nombre',80);
             $table->string('dpi',13);
             $table->date('fecha');
             $table->string('contacto',8);
-            $table->string('direccion',80);
+            $table->string('direccion',150);
             $table->string('imagen');
             $table->enum('estado',['Activo','Inactivo'])->default('Activo');
             $table->timestamps();

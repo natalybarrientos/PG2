@@ -44,21 +44,24 @@ class EmpleadoController extends Controller
     {
 
         $reglas= [
-            'nombre' => 'required|max:40',
+            'nombre' => 'required|max:80',
             'dpi' => 'required|max:13',
+            'fecha' => 'required',
             'contacto' => 'required|max:8',
-            'direccion' => 'required|max:80',
-
+            'direccion' => 'required|max:150',
+            'imagen' => 'required',
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
             'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
             'dpi.required' => 'El campo DPI es requerido',
             'dpi.max' => 'El Campo DPI no debe de ser mayor a :max dígitos',
+            'fecha.required' => 'El campo fecha es requerido',
             'contacto.required' => 'El campo Contacto es requerido',
             'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
             'direccion.required' => 'El campo Dirección es requerido',
             'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
+            'imagen.required' => 'El campo Imagen es requerido',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
@@ -104,9 +107,11 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {
+        $fecha = Carbon::now()->format('Y-m-d');
 
         $empleado = Empleado::find($id);
-        return view('empleado.edit')->with('empleado',$empleado);
+        return view('empleado.edit', compact( 'empleado', 'fecha') );
+      
     }
 
     /**
@@ -121,25 +126,29 @@ class EmpleadoController extends Controller
 
         
         $reglas= [
-            'nombre' => 'required|max:40',
+            'nombre' => 'required|max:80',
             'dpi' => 'required|max:13',
+            'fecha' => 'required',
             'contacto' => 'required|max:8',
-            'direccion' => 'required|max:80',
-
+            'direccion' => 'required|max:150',
+            'imagen' => 'required',
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
             'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
             'dpi.required' => 'El campo DPI es requerido',
             'dpi.max' => 'El Campo DPI no debe de ser mayor a :max dígitos',
+            'fecha.required' => 'El campo fecha es requerido',
             'contacto.required' => 'El campo Contacto es requerido',
             'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
             'direccion.required' => 'El campo Dirección es requerido',
             'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
+            'imagen.required' => 'El campo Imagen es requerido',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
 
+        
 
         $empleado = Empleado::find($id);
         $empleado->nombre = $request->get('nombre');
