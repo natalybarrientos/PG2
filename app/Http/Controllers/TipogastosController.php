@@ -47,10 +47,10 @@ class TipogastosController extends Controller
 
         ];
         $mensaje = [
-            'tipo.required' => 'El campo tipo de gasto es requerido',
-            'tipo.max' => 'El Campo tipo de gasto no debe de ser mayor a :max caracteres',
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'tipo.required' => 'El campo Tipo de gasto es requerido',
+            'tipo.max' => 'El Campo Tipo de gasto no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripcion es requerido',
+            'descripcion.max' => 'El Campo Descripcion no debe de ser mayor a :max caracteres',
         ];
 
         $validated = $request->validate($reglas,$mensaje);
@@ -107,10 +107,10 @@ class TipogastosController extends Controller
 
         ];
         $mensaje = [
-            'tipo.required' => 'El campo tipo de gasto es requerido',
-            'tipo.max' => 'El Campo tipo de gasto no debe de ser mayor a :max caracteres',
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'tipo.required' => 'El campo Tipo de gasto es requerido',
+            'tipo.max' => 'El Campo Tipo de gasto no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripcion es requerido',
+            'descripcion.max' => 'El Campo Descripcion no debe de ser mayor a :max caracteres',
         ];
 
         $validated = $request->validate($reglas,$mensaje);

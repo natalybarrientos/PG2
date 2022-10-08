@@ -1,4 +1,4 @@
-@if (!($item['text'] == 'Perfil del Usuario' or $item['text'] == 'Tipos de Gastos' or $item['text'] == 'Usuario' or $item['text'] == 'Usuario' ) and (auth()->user()->rol == 'Encargado'))
+@if (!( $item['text'] == ' Tipos de Gastos' or $item['text'] == ' Usuario' ) and (auth()->user()->rol == 'Encargado'))
 <li @isset($item['id']) id="{{ $item['id'] }}" @endisset class="nav-item">
 
     <a class="nav-link {{ $item['class'] }} @isset($item['shift']) {{ $item['shift'] }} @endisset"

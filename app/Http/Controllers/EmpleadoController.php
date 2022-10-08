@@ -53,14 +53,14 @@ class EmpleadoController extends Controller
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
-            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'nombre.max' => 'El campo Nombre no debe de ser mayor a :max caracteres',
             'dpi.required' => 'El campo DPI es requerido',
-            'dpi.max' => 'El Campo DPI no debe de ser mayor a :max dígitos',
-            'fecha.required' => 'El campo fecha es requerido',
+            'dpi.max' => 'El campo DPI no debe de ser mayor a :max dígitos',
+            'fecha.required' => 'El campo Fecha es requerido',
             'contacto.required' => 'El campo Contacto es requerido',
-            'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
+            'contacto.max' => 'El campo Contacto no debe de ser mayor a :max dígitos',
             'direccion.required' => 'El campo Dirección es requerido',
-            'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
+            'direccion.max' => 'El campo Dirección no debe de ser mayor a :max caracteres',
             'imagen.required' => 'El campo Imagen es requerido',
         ];
 
@@ -131,19 +131,19 @@ class EmpleadoController extends Controller
             'fecha' => 'required',
             'contacto' => 'required|max:8',
             'direccion' => 'required|max:150',
-            'imagen' => 'required',
+            
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
-            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
+            'nombre.max' => 'El campo Nombre no debe de ser mayor a :max caracteres',
             'dpi.required' => 'El campo DPI es requerido',
-            'dpi.max' => 'El Campo DPI no debe de ser mayor a :max dígitos',
-            'fecha.required' => 'El campo fecha es requerido',
+            'dpi.max' => 'El campo DPI no debe de ser mayor a :max dígitos',
+            'fecha.required' => 'El campo Fecha es requerido',
             'contacto.required' => 'El campo Contacto es requerido',
-            'contacto.max' => 'El Campo Contacto no debe de ser mayor a :max dígitos',
+            'contacto.max' => 'El campo Contacto no debe de ser mayor a :max dígitos',
             'direccion.required' => 'El campo Dirección es requerido',
-            'direccion.max' => 'El Campo Dirección no debe de ser mayor a :max caracteres',
-            'imagen.required' => 'El campo Imagen es requerido',
+            'direccion.max' => 'El campo Dirección no debe de ser mayor a :max caracteres',
+            
         ];
 
         $validated = $request->validate($reglas,$mensaje);

@@ -103,13 +103,13 @@ class UserController extends Controller
         $reglas= [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            
 
         ];
         $mensaje = [
             'name.required' => 'El campo Nombre de usuario es requerido',
             'email.required' => 'El Campo Correo electrónico es requerido',
-            'password.required' => 'El campo Contraseña es requerido',
+           
             
         ];
 

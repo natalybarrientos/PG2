@@ -79,9 +79,6 @@
                 <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$maquinaria->imagen}}">
                 </div><br>
         </div>
-        @error('imagen')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
         <br>
         
     <!-- Estado -->

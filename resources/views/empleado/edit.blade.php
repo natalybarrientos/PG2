@@ -83,9 +83,6 @@
                  <input id="imagen" name="imagen" type="file" class="sr-only" value="{{$empleado->imagen}}">
                 </div>
         </div>
-        @error('imagen')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
         <br>
 
     <!-- Estado -->

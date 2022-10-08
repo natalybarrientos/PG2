@@ -55,8 +55,8 @@ class GastoplanillaController extends Controller
             
         ];
         $mensaje = [
-            'descripcion.required' => 'El campo Descipción es requerido',
-            'descripcion.max' => 'El campo Descipción no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'costo.required' => 'El campo Costo es requerido',
             'costo.max' => 'El campo Costo no debe ser mayor a :max dígitos',
         ];
@@ -124,8 +124,8 @@ class GastoplanillaController extends Controller
             
         ];
         $mensaje = [
-            'descripcion.required' => 'El campo Descipción es requerido',
-            'descripcion.max' => 'El campo Descipción no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'costo.required' => 'El campo Costo es requerido',
             'costo.max' => 'El campo Costo no debe ser mayor a :max dígitos',
         ];

@@ -55,10 +55,10 @@ class ProyectoController extends Controller
 
         ];
         $mensaje = [
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'costo.required' => 'El campo Costo es requerido',
-            'costo.max' => 'El Campo Costo no debe de ser mayor a :max caracteres',
+            'costo.max' => 'El campo Costo no debe de ser mayor a :max caracteres',
             'fechainicio.required' => 'El campo Fecha de Inicio es requerido',
             
         ];
@@ -129,10 +129,10 @@ class ProyectoController extends Controller
 
         ];
         $mensaje = [
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'costo.required' => 'El campo Costo es requerido',
-            'costo.max' => 'El Campo Costo no debe de ser mayor a :max caracteres',
+            'costo.max' => 'El campo Costo no debe de ser mayor a :max caracteres',
             'fechainicio.required' => 'El campo Fecha de Inicio es requerido',
             
         ];

@@ -55,11 +55,11 @@ class MaquinariaController extends Controller
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
-            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'nombre.max' => 'El campo Nombre no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'precio.required' => 'El campo Precio es requerido',
-            'precio.max' => 'El Campo Precio no debe de ser mayor a :max caracteres',
+            'precio.max' => 'El campo Precio no debe de ser mayor a :max caracteres',
             'fechaadq.required' => 'El campo Fecha de Adquisición es requerido',
             'fechaadq.max' => 'El Campo Fecha de Adquisición  no debe de ser mayor a :max caracteres',
             'imagen.required' => 'El campo Imagen es requerido',
@@ -123,29 +123,29 @@ class MaquinariaController extends Controller
     public function update(Request $request, $id)
     {
 
-       
         $reglas= [
             'nombre' => 'required|max:80',
             'descripcion' => 'required|max:150',
             'precio' => 'required|max:10',
             'fechaadq' => 'required',
-            'imagen' => 'required',
+            
       
 
         ];
         $mensaje = [
             'nombre.required' => 'El campo Nombre es requerido',
-            'nombre.max' => 'El Campo nombre no debe de ser mayor a :max caracteres',
-            'descripcion.required' => 'El campo descripcion es requerido',
-            'descripcion.max' => 'El Campo descripcion no debe de ser mayor a :max caracteres',
+            'nombre.max' => 'El campo Nombre no debe de ser mayor a :max caracteres',
+            'descripcion.required' => 'El campo Descripción es requerido',
+            'descripcion.max' => 'El campo Descripción no debe de ser mayor a :max caracteres',
             'precio.required' => 'El campo Precio es requerido',
-            'precio.max' => 'El Campo Precio no debe de ser mayor a :max caracteres',
+            'precio.max' => 'El campo Precio no debe de ser mayor a :max caracteres',
             'fechaadq.required' => 'El campo Fecha de Adquisición es requerido',
             'fechaadq.max' => 'El Campo Fecha de Adquisición  no debe de ser mayor a :max caracteres',
-            'imagen.required' => 'El campo Imagen es requerido',
+            
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+
         
 
         $maquinaria = Maquinaria::find($id);
