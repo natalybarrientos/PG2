@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use PDF;
 
 class ClienteController extends Controller
 {
@@ -20,6 +21,13 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::all();
         return view('cliente.index')->with('clientes',$clientes);
+    }
+
+    public function pdf()
+    {
+       $clientes = Cliente::all();
+       $pdf = PDF::loadView('cliente.pdf',['clientes'=>$clientes]);
+       return $pdf->download('clientes.pdf');
     }
 
     /**

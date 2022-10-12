@@ -7,6 +7,7 @@ use App\Models\Proyecto;
 use App\Models\Cliente;
 use App\Models\Empleado;
 use App\Models\Maquinaria;
+use PDF;
 
 class ProyectoController extends Controller
 {
@@ -23,6 +24,14 @@ class ProyectoController extends Controller
         $proyectos = Proyecto::all();
         return view('proyecto.index')->with('proyectos',$proyectos);
     }
+
+    public function pdf()
+    {
+       $proyectos = Proyecto::all();
+       $pdf = PDF::loadView('proyecto.pdf',['proyectos'=>$proyectos]);
+       return $pdf->download('proyectos.pdf');
+    }
+
 
     /**
      * Show the form for creating a new resource.

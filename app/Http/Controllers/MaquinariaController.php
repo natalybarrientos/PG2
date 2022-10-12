@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Maquinaria;
 use Carbon\Carbon;
+use PDF;
 
 class MaquinariaController extends Controller
 {
@@ -21,6 +22,13 @@ class MaquinariaController extends Controller
     {
         $maquinarias = Maquinaria::all();
         return view('maquinaria.index')->with('maquinarias',$maquinarias); 
+    }
+
+    public function pdf()
+    {
+       $maquinarias = Maquinaria::all();
+       $pdf = PDF::loadView('maquinaria.pdf',['maquinarias'=>$maquinarias]);
+       return $pdf->download('maquinarias.pdf');
     }
 
     /**

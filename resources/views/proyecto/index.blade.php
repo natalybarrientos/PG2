@@ -17,6 +17,7 @@
 
 
 <a href="proyectos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="proyectos/pdf" class="btn btn-info mb-3"><i class="fa-solid fa-file-pdf"></i>   PDF</a>
 
 <div class="table-responsive">
 

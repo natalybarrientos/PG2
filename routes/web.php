@@ -18,7 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('empleados/pdf',[App\Http\Controllers\EmpleadoController::class, 'pdf'])->name('empleados.pdf');
- 
+Route::get('clientes/pdf',[App\Http\Controllers\ClienteController::class, 'pdf'])->name('clientes.pdf');
+Route::get('maquinarias/pdf',[App\Http\Controllers\MaquinariaController::class, 'pdf'])->name('maquinarias.pdf');
+Route::get('proyectos/pdf',[App\Http\Controllers\ProyectoController::class, 'pdf'])->name('proyectos.pdf');
 
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');

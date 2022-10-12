@@ -1,5 +1,3 @@
-<link href="{{public_path('css/app.css') }}" rel="stylesheet" type="text/css">
-
 <font face="Copperplate">
 <br>
 <br>
