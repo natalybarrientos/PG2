@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 use Carbon\Carbon;
+use PDF;
 
 
 class EmpleadoController extends Controller
@@ -17,12 +18,21 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function pdf()
+    {
+       $empleados = Empleado::all();
+       $pdf = PDF::loadView('empleado.pdf',['empleados'=>$empleados]);
+       return $pdf->download('empleados.pdf');
+      
+
+       
+    }
+
     public function index()
     {
        $empleados = Empleado::all();
         return view('empleado.index')->with('empleados',$empleados);
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -17,6 +17,8 @@
 
 <a href="empleados/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
+<a href="empleados/pdf" class="btn btn-info mb-3"><i class="fa-solid fa-file-pdf"></i>   PDF</a>
+
 <div class="table-responsive">
 
 <table id="empleados" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">

@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('empleados/pdf',[App\Http\Controllers\EmpleadoController::class, 'pdf'])->name('empleados.pdf');
+ 
+
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');
 Route::resource('gastos','App\Http\Controllers\GastoController');
