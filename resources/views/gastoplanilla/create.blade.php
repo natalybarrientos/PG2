@@ -69,7 +69,9 @@
             <label for="" class="form-label">Empleado</label>
             <select name="empleado_id" class="form-control">
             @foreach ($empleados as $empleado)
+                 @if($empleado->estado== "Activo" )
                 <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
+                @endif
             @endforeach
            </select>
         </div>

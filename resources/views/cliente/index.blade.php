@@ -19,6 +19,10 @@
 
 <a href="clientes/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
+
+
+<div class="table-responsive">
+
 <table id="clientes" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
@@ -52,7 +56,7 @@
 
 
 </table>
-
+</div>
 
 @stop
 
@@ -69,6 +73,13 @@
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/buttons-1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables/buttons-1.6.5/js/buttons.html5.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.templates.min.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -94,12 +105,14 @@
                     "previous": "Anterior"
         }
     },
-            
-        });
+
+             
+    });
     
     }); 
-    </script>
+</script>
 
+  
 </font>
 
 @stop

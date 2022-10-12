@@ -318,7 +318,7 @@ return [
             'submenu'    =>[
 
                 [
-                    'text'       => 'Gasto-Maquinaria',
+                    'text'       => 'Gasto-Equipos',
                     'url'        => 'gastos',
                 ],
                 [

@@ -6,7 +6,7 @@
 
 <font face="Copperplate">
 <h1 class="text-dark text-center font-medium"> R E G I S T R O  D E  </h1>
-<h1 class="text-dark text-center font-medium"> G A S T O - M A Q U I N A R I A </h1>
+<h1 class="text-dark text-center font-medium"> G A S T O - E Q U I P O S </h1>
 <br>
 <br>
 </font>   
@@ -57,7 +57,9 @@
             <label for="" class="form-label">Tipo de Gasto</label>
             <select name="tipogastos_id" class="form-control">
             @foreach ($tipogastos as $tipogasto)
+                 @if ( $tipogasto->tipo != "Planilla")
                  <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
+                 @endif
             @endforeach
            </select>
         </div><br>
@@ -67,7 +69,9 @@
             <label for="" class="form-label">Maquinaria</label>
             <select name="maquinaria_id" class="form-control">
              @foreach ($maquinarias as $maquinaria)
+                @if($maquinaria->estado== "Activo" )
                 <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
+                @endif
              @endforeach
             </select>
         </div><br>
@@ -77,7 +81,9 @@
             <label for="" class="form-label">Empleado</label>
             <select name="empleado_id" class="form-control">
             @foreach ($empleados as $empleado)
+                @if($empleado->estado== "Activo" )
                 <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
+                @endif
             @endforeach
            </select>
         </div>

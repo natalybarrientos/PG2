@@ -17,6 +17,8 @@
 
 <a href="tipogastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
+<div class="table-responsive">
+
 <table id="tipogastos" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
@@ -43,7 +45,7 @@
 
 
 </table>
-
+</div>
 
 @stop
 

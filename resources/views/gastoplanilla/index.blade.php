@@ -18,14 +18,16 @@
 
 <a href="gastoplanillas/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
+<div class="table-responsive">
+
 <table id="gastos" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
         <th scope="col">ID</th>
         <th scope="col">Descripción</th>
         <th scope="col">Costo</th>
-        <th scope="col">Fecha de Factura</th>
-        <th scope="col">Factura</th>
+        <th scope="col">Fecha de Factura o Vale</th>
+        <th scope="col">Factura o Vale</th>
         <th scope="col">Tipo de gasto</th>
         <th scope="col">Empleado</th>
         <th scope="col">Acciones</th>
@@ -57,6 +59,7 @@
 
 
 </table>
+</div>
 @stop
 
 @section('css')

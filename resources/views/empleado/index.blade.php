@@ -17,6 +17,8 @@
 
 <a href="empleados/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
 
+<div class="table-responsive">
+
 <table id="empleados" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
@@ -56,6 +58,8 @@
 
 
 </table>
+
+</div>
 @stop
 
 @section('css')
@@ -75,17 +79,17 @@
         $('#empleados').DataTable ({
             language: {
                 "decimal": "",
-                "emptyTable": "No hay información",
-                "info": "Mostrando de Inicio a Fin el total de Información",
+                "emptyTable": "No se encontro Resultados",
+                "info": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
                 "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoFiltered": "(Filtrado de un total de _MAX_ registros)",
                 "infoPostFix": "",
                 "thousands": ",",
                 "lengthMenu": "",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscar:",
-                "zeroRecords": "Sin resultados encontrados",
+                "zeroRecords": "No se encontro Resultados",
                 "paginate": {
                     "first": "Primero",
                     "last": "Ultimo",
