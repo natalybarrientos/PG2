@@ -23,6 +23,11 @@ Route::get('maquinarias/pdf',[App\Http\Controllers\MaquinariaController::class, 
 Route::get('proyectos/pdf',[App\Http\Controllers\ProyectoController::class, 'pdf'])->name('proyectos.pdf');
 Route::get('gastoplanillas/pdf/{gasto}',[App\Http\Controllers\GastoplanillaController::class, 'pdf'])->name('gastoplanillas.pdf');
 
+Route::get('reportes/gastomaquinaria',[App\Http\Controllers\ReporteController::class, 'gastomaquinaria'])->name('reportes.gastomaquinaria');
+Route::get('reportes/gastopersonal',[App\Http\Controllers\ReporteController::class, 'gastopersonal'])->name('reportes.gastopersonal');
+Route::get('reportes/ganancia',[App\Http\Controllers\ReporteController::class, 'ganancia'])->name('reportes.ganancia');
+Route::get('reportes/reporteproyecto',[App\Http\Controllers\ReporteController::class, 'reporteproyecto'])->name('reportes.reporteproyecto');
+
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');
 Route::resource('gastos','App\Http\Controllers\GastoController');
@@ -31,7 +36,7 @@ Route::resource('tipogastos','App\Http\Controllers\TipogastosController');
 Route::resource('maquinarias','App\Http\Controllers\MaquinariaController');
 Route::resource('proyectos','App\Http\Controllers\ProyectoController');
 Route::resource('users','App\Http\Controllers\UserController');
-
+Route::resource('reportes','App\Http\Controllers\ReporteController');
 
 Route::middleware([
     'auth:sanctum', 'verified'])->get('/dash', function () {
