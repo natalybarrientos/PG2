@@ -16,8 +16,8 @@
 @section('content')
 
 
-<a href="maquinarias/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
-<a href="maquinarias/pdf" class="btn btn-info mb-3"><i class="fa-solid fa-file-pdf"></i>   PDF</a>
+<a href="maquinarias/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
+<a href="maquinarias/pdf" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 
 
 <div class="table-responsive">
@@ -52,7 +52,7 @@
              <td>{{$maquinaria->estado}}</td>
              <td>
 
-             <a href="/maquinarias/{{$maquinaria->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
+             <a href="/maquinarias/{{$maquinaria->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
       
 
              </td>

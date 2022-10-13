@@ -16,7 +16,7 @@
 @section('content')
 
 
-<a href="gastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="gastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 
 <div class="table-responsive">
 
@@ -51,7 +51,7 @@
 
              <td>
              
-             <a href="/gastos/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
+             <a href="/gastos/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
              
              </td>
         </tr>

@@ -1,22 +1,61 @@
-<font face="Copperplate">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<style type="text/css">
+    * {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 15px;
+    }
+    table{
+        font-size: x-small;
+
+    }
+
+    h1 { font-size: 250% }
+
+    tfoot tr td{
+        font-weight: bold;
+        font-size: x-small;
+    }
+    .gray {
+        background-color: lightgray;
+    }
+    .information {
+        margin: 0px;
+        }
+        .information .logo {
+            margin: 5px;
+        }
+        
+</style>
+
+<table width="100%">
+    <tr>
+        <td valign="top"><img data-imagetype="External" src="./vendor/adminlte/dist/img/LOGOMULTI.png" 
+            width="150px" height="150px" style="border-top-width:0; border-right-width:0; border-bottom-width:0; border-left-width:0"></td>
+        <td align="right">
+            <h1>MAQUINARIAS REGISTRADAS</h1>
+          
+        </td>
+    </tr>
+  </table>
 <br>
 <br>
-<h1 class="text-dark text-center font-medium"> MAQUINARIAS REGISTRADAS </h1>
-<br>
-<br> 
-</font>
 
 
-<table id="maquinarias" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
+<table id="maquinarias"  border="1" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre Maquinaria</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Fecha de Adquisición</th>
-        <th scope="col">Fecha de Baja</th>
-        <th scope="col">Estado</th>
+        <th scope="col">MAQUINARIA</th>
+        <th scope="col">DESCRIPCIÓN</th>
+        <th scope="col">PRECIO</th>
+        <th scope="col">FECHA DE ADQUISICIÓN</th>
+        <th scope="col">FECHA DE BAJA</th>
+        <th scope="col">ESTADO</th>
        
         </tr>
     </thead>
@@ -38,3 +77,4 @@
 
 
 </table>
+</html>

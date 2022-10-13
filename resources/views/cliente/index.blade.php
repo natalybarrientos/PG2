@@ -17,9 +17,9 @@
 @section('content')
 
 
-<a href="clientes/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="clientes/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 
-<a href="clientes/pdf" class="btn btn-info mb-3"><i class="fa-solid fa-file-pdf"></i>   PDF</a>
+<a href="clientes/pdf" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 
 <div class="table-responsive">
 
@@ -47,7 +47,7 @@
              <td>{{$cliente->estado}}</td>
              <td>
 
-             <a href="/clientes/{{$cliente->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
+             <a href="/clientes/{{$cliente->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
 
              </td>
         </tr>

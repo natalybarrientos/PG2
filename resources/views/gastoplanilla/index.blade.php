@@ -16,7 +16,7 @@
 @section('content')
 
 
-<a href="gastoplanillas/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="gastoplanillas/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 
 <div class="table-responsive">
 
