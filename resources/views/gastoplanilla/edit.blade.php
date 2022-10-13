@@ -34,7 +34,7 @@
 
     <!-- Costo -->
         <div class="mb-3">
-            <label for="" class="form-label">Costo</label>
+            <label for="" class="form-label">Monto del Pago</label>
             <input id="costo" name="costo" type="number" step="0.01" min="0" class="form-control" value="{{$gasto->costo}}">
         </div>
         @error('costo')
@@ -44,14 +44,8 @@
 
     <!-- Fecha de gasto -->
         <div class="mb-3">
-            <label for="" class="form-label">Fecha de Gasto</label>
+            <label for="" class="form-label">Fecha del Pago</label>
             <input id="fecha" name="fecha" type="date" max="{{$fecha}}" class="form-control" value="{{$gasto->fecha}}">
-        </div><br>
-    
-    <!-- Factura -->
-        <div class="mb-3">
-            <label for="" class="form-label">Número de Factura o Vale emitido</label>
-            <input id="factura" name="factura" type="text" class="form-control" value="{{$gasto->factura}}">
         </div><br>
 
     <!-- Tipo de gasto -->

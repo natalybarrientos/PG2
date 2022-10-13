@@ -7,6 +7,7 @@ use App\Models\Gasto;
 use App\Models\Tipogastos;
 use App\Models\Empleado;
 use Carbon\Carbon;
+use PDF;
 
 
 class GastoplanillaController extends Controller
@@ -25,6 +26,14 @@ class GastoplanillaController extends Controller
         return view('gastoplanilla.index', compact('gastos'));
     }
 
+    public function pdf(Request $request )
+    {
+       
+
+       $gasto = Gasto::find($request->gasto);   
+       $pdf = PDF::loadView('gastoplanilla.pdf',['gasto'=>$gasto]);
+       return $pdf->download('Comprobante-'.$request->gasto.'.pdf');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -68,7 +77,6 @@ class GastoplanillaController extends Controller
         $gasto->descripcion = $request->get('descripcion');
         $gasto->costo = $request->get('costo');
         $gasto->fecha = $request->get('fecha');
-        $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
         $gasto->empleado_id = $request->get('empleado_id');
 
@@ -136,7 +144,6 @@ class GastoplanillaController extends Controller
         $gasto->descripcion = $request->get('descripcion');
         $gasto->costo = $request->get('costo');
         $gasto->fecha = $request->get('fecha');
-        $gasto->factura = $request->get('factura');
         $gasto->tipogastos_id = $request->get('tipogastos_id');
       
         $gasto->empleado_id = $request->get('empleado_id');

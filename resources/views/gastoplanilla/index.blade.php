@@ -25,9 +25,8 @@
         <tr>
         <th scope="col">ID</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Costo</th>
-        <th scope="col">Fecha de Factura o Vale</th>
-        <th scope="col">Factura o Vale</th>
+        <th scope="col">Monto del Pago</th>
+        <th scope="col">Fecha del Pago</th>
         <th scope="col">Tipo de gasto</th>
         <th scope="col">Empleado</th>
         <th scope="col">Acciones</th>
@@ -42,15 +41,15 @@
              <td>{{$gasto->descripcion}}</td>
              <td>{{$gasto->costo}}</td>
              <td>{{$gasto->fecha}}</td>
-             <td>{{$gasto->factura}}</td>
              <td>{{$gasto->tipogasto->tipo}}</td>
              <td>{{$gasto->empleados->nombre}}</td>
              
 
              <td>
              
-             <a href="/gastoplanillas/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
-             
+             <a href="/gastoplanillas/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
+             <a href="{{ route('gastoplanillas.pdf', ['gasto' => $gasto->id ]) }}" class="btn btn-info"><i class="fa-solid fa-file-pdf"></i> </a>
+
              </td>
         </tr>
         @endif
