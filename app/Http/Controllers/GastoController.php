@@ -23,7 +23,8 @@ class GastoController extends Controller
     public function index()
     {
         $gastos = Gasto::all();
-        return view('gasto.index', compact('gastos'));
+        $total= null;
+        return view('gasto.index', compact('gastos','total'));
     }
 
     /**
@@ -82,7 +83,8 @@ class GastoController extends Controller
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
         //dd($gasto);
         $gastos = Gasto::all();
-        return view('gasto.index')->with('gastos',$gastos);
+        return view('gasto.index', compact('gastos','total'));
+      
     }
 
     /**

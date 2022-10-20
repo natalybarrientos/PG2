@@ -17,7 +17,54 @@
 
 
 <a href="/reportes" class="btn btn-warning border border-dark"><i class="fa-solid fa-house"></i> | Regresar a Menú</a>
+<br>
+<br>
+    
+        <form action="/reportes/gastomaquinaria/maquinaria" method="POST" autocomplete="off">
+        @csrf
 
+
+    <!-- Maquinaria -->
+        <div class="container center col-md-5 col-md-offset-5">
+            <label for="" class="form-label">Maquinaria</label>
+            <select name="maquinaria_id" class="form-control">
+             @foreach ($maquinarias as $maquinaria)
+               <option value="{{$maquinaria->id}}">{{$maquinaria->nombre}}</option>
+             @endforeach
+            
+            </select>
+        </div><br>
+
+
+    <!-- Tipo de gasto -->
+        <div class="container center col-md-5 col-md-offset-5">
+            <label for="" class="form-label">Tipo de Gasto</label>
+            <select name="tipogastos_id" class="form-control">
+            @foreach ($tipogastos as $tipogasto)
+                 @if ( $tipogasto->tipo != "Planilla" && $tipogasto->tipo != "Compra")
+                 <option value="{{$tipogasto->id}}">{{$tipogasto->tipo}}</option>
+                 @endif
+            @endforeach
+           </select>
+        </div><br>
+
+    <!-- Fecha de inicio -->
+        <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Inicio</label>
+            <input id="fechabaja" name="fechaini" type="date" class="form-control" tabindex="5">
+        </div><br>
+ 
+    <!-- Fecha de fin -->
+        <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Fin</label>
+            <input id="fechabaja" name="fechafin" type="date" class="form-control" tabindex="5">
+        </div><br>
+
+        <div class="text-center">
+        <button type="submit" class=" btn btn-primary" tabindex="4"><i class="fa-solid fa-person-circle-question"></i> | Consultar</button>
+        </div><br><br>
+        
+    </form>
 @stop
 
 @section('css')

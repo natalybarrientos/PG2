@@ -16,7 +16,38 @@
 @section('content')
 
 <a href="/reportes" class="btn btn-warning border border-dark"><i class="fa-solid fa-house"></i> | Regresar a Menú</a>
+<br>
+<br>
 
+        <form action="/reportes/gastopersonal/empleado" method="POST" autocomplete="off">
+        @csrf
+    <!-- Nombre del empleado -->
+        <div class="container center col-md-5 col-md-offset-5">
+            <label for="" class="form-label">Empleado </label>
+            <select name="empleado_id" class="form-control">
+            @foreach ($empleados as $empleado)
+                <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
+            @endforeach
+            </select>
+        </div><br>
+    
+
+    <!-- Fecha de inicio -->
+        <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Inicio</label>
+            <input id="fechabaja" name="fechaini" type="date" class="form-control" require tabindex="5">
+        </div><br>
+
+    <!-- Fecha de fin -->
+        <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Fin</label>
+            <input id="fechabaja" name="fechafin" type="date" require class="form-control" tabindex="5">
+        </div><br>
+
+
+        <div class="text-center">
+        <button type="submit" class=" btn btn-primary" tabindex="4"><i class="fa-solid fa-person-circle-question"></i> | Consultar</button>
+        </div><br><br>
 
 @stop
 

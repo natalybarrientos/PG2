@@ -24,9 +24,15 @@ Route::get('proyectos/pdf',[App\Http\Controllers\ProyectoController::class, 'pdf
 Route::get('gastoplanillas/pdf/{gasto}',[App\Http\Controllers\GastoplanillaController::class, 'pdf'])->name('gastoplanillas.pdf');
 
 Route::get('reportes/gastomaquinaria',[App\Http\Controllers\ReporteController::class, 'gastomaquinaria'])->name('reportes.gastomaquinaria');
+Route::post('reportes/gastomaquinaria/maquinaria',[App\Http\Controllers\ReporteController::class, 'mgastomaquinaria'])->name('reportes.gastomaquinaria.consulta');
+
 Route::get('reportes/gastopersonal',[App\Http\Controllers\ReporteController::class, 'gastopersonal'])->name('reportes.gastopersonal');
+Route::post('reportes/gastopersonal/empleado',[App\Http\Controllers\ReporteController::class, 'mgastopersonal'])->name('reportes.gastopersonal.consulta');
+
 Route::get('reportes/ganancia',[App\Http\Controllers\ReporteController::class, 'ganancia'])->name('reportes.ganancia');
+
 Route::get('reportes/reporteproyecto',[App\Http\Controllers\ReporteController::class, 'reporteproyecto'])->name('reportes.reporteproyecto');
+Route::post('reportes/reporteproyecto/proyecto',[App\Http\Controllers\ReporteController::class, 'mreporteproyecto'])->name('reportes.reporteproyecto.consulta');
 
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');

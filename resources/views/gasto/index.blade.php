@@ -15,8 +15,12 @@
 <font face="Courier New">
 @section('content')
 
-
+@if($total==null)
 <a href="gastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
+@else
+<a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de Gasto generado: {{$total}}</a>
+@endif
+
 
 <div class="table-responsive">
 
@@ -31,7 +35,9 @@
         <th scope="col">Tipo de gasto</th>
         <th scope="col">Maquinaria</th>
         <th scope="col">Empleado</th>
+        @if($total==null)
         <th scope="col">Acciones</th>
+        @endif
         </tr>
     </thead>
    
@@ -48,12 +54,13 @@
              <td>{{$gasto->maquinarias->nombre}}</td>
              <td>{{$gasto->empleados->nombre}}</td>
              
-
+             @if($total==null)
              <td>
              
              <a href="/gastos/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
              
              </td>
+             @endif
         </tr>
         @endif
         @endforeach

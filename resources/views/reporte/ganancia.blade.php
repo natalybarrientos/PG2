@@ -16,6 +16,24 @@
 
 
 <a href="/reportes" class="btn btn-warning border border-dark"><i class="fa-solid fa-house"></i> | Regresar a Menú</a>
+<br>
+<br>
+    <!-- Fecha de inicio -->
+    <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Inicio</label>
+            <input id="fechabaja" name="fechabaja" type="date" class="form-control" tabindex="5">
+        </div><br>
+
+    <!-- Fecha de fin -->
+        <div class="container center col-md-5 col-md-offset-5" >
+            <label for="" class="form-label">Fecha de Fin</label>
+            <input id="fechabaja" name="fechabaja" type="date" class="form-control" tabindex="5">
+        </div><br>
+
+
+        <div class="text-center">
+        <button type="submit" class=" btn btn-primary" tabindex="4"><i class="fa-solid fa-person-circle-question"></i> | Consultar</button>
+        </div><br><br>
 
 @stop
 

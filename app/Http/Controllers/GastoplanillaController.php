@@ -23,7 +23,8 @@ class GastoplanillaController extends Controller
     public function index()
     {
         $gastos = Gasto::all();
-        return view('gastoplanilla.index', compact('gastos'));
+        $total=null;
+        return view('gastoplanilla.index', compact('gastos','total'));
     }
 
     public function pdf(Request $request )
@@ -83,7 +84,8 @@ class GastoplanillaController extends Controller
         $gasto->save(); //Para Guardar todos los datos que queremos registrar.
         //dd($gasto);
         $gastos = Gasto::all();
-        return view('gastoplanilla.index')->with('gastos',$gastos);
+        $total= null;
+        return view('gastoplanilla.index', compact('gastos','total'));
     }
 
     /**

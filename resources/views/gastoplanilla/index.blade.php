@@ -15,9 +15,11 @@
 <font face="Courier New">
 @section('content')
 
-
+@if($total==null)
 <a href="gastoplanillas/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
-
+@else
+<a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de pago generado a Empleado: {{$total}}</a>
+@endif
 <div class="table-responsive">
 
 <table id="gastos" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
@@ -29,7 +31,9 @@
         <th scope="col">Fecha del Pago</th>
         <th scope="col">Tipo de gasto</th>
         <th scope="col">Empleado</th>
+        @if($total==null)
         <th scope="col">Acciones</th>
+        @endif
         </tr>
     </thead>
    
@@ -44,13 +48,12 @@
              <td>{{$gasto->tipogasto->tipo}}</td>
              <td>{{$gasto->empleados->nombre}}</td>
              
-
-             <td>
-             
+             @if($total==null)
+             <td>       
              <a href="/gastoplanillas/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
              <a href="{{ route('gastoplanillas.pdf', ['gasto' => $gasto->id ]) }}" class="btn btn-info"><i class="fa-solid fa-file-pdf"></i> </a>
-
              </td>
+             @endif
         </tr>
         @endif
         @endforeach
