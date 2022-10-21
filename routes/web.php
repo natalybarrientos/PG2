@@ -30,9 +30,12 @@ Route::get('reportes/gastopersonal',[App\Http\Controllers\ReporteController::cla
 Route::post('reportes/gastopersonal/empleado',[App\Http\Controllers\ReporteController::class, 'mgastopersonal'])->name('reportes.gastopersonal.consulta');
 
 Route::get('reportes/ganancia',[App\Http\Controllers\ReporteController::class, 'ganancia'])->name('reportes.ganancia');
+Route::post('reportes/ganancia/reporte',[App\Http\Controllers\ReporteController::class, 'mganancia'])->name('reportes.ganancia.reporte');
 
 Route::get('reportes/reporteproyecto',[App\Http\Controllers\ReporteController::class, 'reporteproyecto'])->name('reportes.reporteproyecto');
 Route::post('reportes/reporteproyecto/proyecto',[App\Http\Controllers\ReporteController::class, 'mreporteproyecto'])->name('reportes.reporteproyecto.consulta');
+
+
 
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');

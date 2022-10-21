@@ -21,7 +21,6 @@
 <a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de Gasto generado: {{$total}}</a>
 @endif
 
-
 <div class="table-responsive">
 
 <table id="gastos" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
@@ -56,9 +55,7 @@
              
              @if($total==null)
              <td>
-             
              <a href="/gastos/{{$gasto->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
-             
              </td>
              @endif
         </tr>

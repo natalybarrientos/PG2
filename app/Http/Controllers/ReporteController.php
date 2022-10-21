@@ -9,6 +9,7 @@ use App\Models\Maquinaria;
 use App\Models\Empleado;
 use App\Models\Gasto;
 use App\Models\Proyecto;
+use PDF;
 use Carbon\Carbon;
 
 
@@ -40,7 +41,7 @@ class ReporteController extends Controller
         $maquinarias = Maquinaria::all();
         $tipogastos = Tipogastos::all();
  
-        return view('reporte.gastomaquinaria', compact('tipogastos','maquinarias', 'fecha') );
+        return view('reporte.gastomaquinaria', compact('tipogastos','maquinarias', 'fecha'));
     }
     public function mgastomaquinaria(Request $request){
         
@@ -49,8 +50,7 @@ class ReporteController extends Controller
     
         return view('gasto.index', compact('gastos','total'));
     }
-
-
+  
 
 
 
@@ -66,7 +66,6 @@ class ReporteController extends Controller
         $gastos = Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
         $total =  Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
     
-
         return view('gastoplanilla.index', compact('gastos', 'total'));
     }
 
@@ -79,6 +78,14 @@ class ReporteController extends Controller
         return view('reporte.ganancia');
     }
 
+    public function mganancia(Request $request)
+    {
+        $ingresos =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
+        $gastos =  Gasto::where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
+        $ganancias= $ingresos-$gastos;
+        return view('reporte.indexganancia', compact('ingresos','gastos','ganancias'));
+    }
+
 
 
 
@@ -88,14 +95,18 @@ class ReporteController extends Controller
        
         return view('reporte.reporteproyecto', compact('fecha'));
     }
+
     public function mreporteproyecto(Request $request){
 
-        $proyectos = Proyecto::where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
-        $total =  Proyecto::where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
-    
-
-        return view('gastoplanilla.index', compact('proyectos', 'total'));
+       
+        $proyectos = Proyecto::where('created_at','>=', $request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->get();
+        $total =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
+        
+        return view('proyecto.index', compact ('proyectos','total'));
     }
+
+
+
 
 
     public function create()

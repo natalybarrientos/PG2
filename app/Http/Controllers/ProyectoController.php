@@ -21,8 +21,9 @@ class ProyectoController extends Controller
      */
     public function index()
     {
+        $total= null;
         $proyectos = Proyecto::all();
-        return view('proyecto.index')->with('proyectos',$proyectos);
+        return view('proyecto.index', compact ('proyectos','total'));
     }
 
     public function pdf()

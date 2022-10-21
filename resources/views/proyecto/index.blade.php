@@ -15,9 +15,14 @@
 <font face="Courier New">
 @section('content')
 
-
+@if($total==null)
 <a href="proyectos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 <a href="proyectos/pdf" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
+@else
+<a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de ingreso generado: {{$total}}</a>
+@endif
+
+
 
 <div class="table-responsive">
 
@@ -33,7 +38,9 @@
         <th scope="col">Fecha Fin</th>
         <th scope="col">Maquinaria</th>
         <th scope="col">Estado</th>
+        @if($total==null)
         <th scope="col">Acciones</th>
+        @endif
         </tr>
     </thead>
 
@@ -56,11 +63,11 @@
              </td>
              <td>{{$proyecto->estado}}</td>
 
+             @if($total==null)
              <td>
-       
              <a href="/proyectos/{{$proyecto->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
-           
              </td>
+             @endif
         </tr>
         @endforeach
     </tbody>
