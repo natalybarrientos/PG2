@@ -11,13 +11,19 @@ use App\Models\Gasto;
 use App\Models\Proyecto;
 use PDF;
 use Carbon\Carbon;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
+
 
 
 class ReporteController extends Controller
 {
+   
+   
+ 
 
     public function __construct(){
         $this->middleware('auth');
+       
     }
     /**
      * Display a listing of the resource.
@@ -28,6 +34,8 @@ class ReporteController extends Controller
     {
         return view('reporte.index');
     }
+
+    
 
  
     /**
@@ -45,6 +53,18 @@ class ReporteController extends Controller
     }
     public function mgastomaquinaria(Request $request){
         
+        $reglas= [
+            'fechaini' => 'required',
+            'fechafin' => 'required',
+        ];
+        $mensaje = [
+            'fechaini.required' => 'El campo Fecha Inicio es requerido',
+            'fechafin.required' => 'El campo Fecha Fin es requerido',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+
         $gastos = Gasto::where('tipogastos_id', '=', $request->tipogastos_id)->where('maquinaria_id','=',$request->maquinaria_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
         $total =  Gasto::where('tipogastos_id', '=', $request->tipogastos_id)->where('maquinaria_id','=',$request->maquinaria_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
     
@@ -63,6 +83,17 @@ class ReporteController extends Controller
     }
     public function mgastopersonal(Request $request){
 
+        $reglas= [
+            'fechaini' => 'required',
+            'fechafin' => 'required',
+        ];
+        $mensaje = [
+            'fechaini.required' => 'El campo Fecha Inicio es requerido',
+            'fechafin.required' => 'El campo Fecha Fin es requerido',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
         $gastos = Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
         $total =  Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
     
@@ -79,16 +110,38 @@ class ReporteController extends Controller
     }
 
     public function mganancia(Request $request)
-    {
+    { 
+        $reglas= [
+            'fechaini' => 'required',
+            'fechafin' => 'required',
+        ];
+        $mensaje = [
+            'fechaini.required' => 'El campo Fecha Inicio es requerido',
+            'fechafin.required' => 'El campo Fecha Fin es requerido',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+      
+       
         $ingresos =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
         $gastos =  Gasto::where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
         $ganancias= $ingresos-$gastos;
-        return view('reporte.indexganancia', compact('ingresos','gastos','ganancias'));
+       
+        $chart2 = LarapexChart::horizontalBarChart()
+        ->setTitle('GANANCIAS O PÉRDIDAS')
+        ->setSubtitle('DEL '.$request->fechaini.' HASTA '.$request->fechafin)
+        ->setColors(['#14a3e0', '#FFC107', '#D32F2F'])
+        ->addData('INGRESOS', [$ingresos])
+        ->addData('GASTOS', [$gastos])
+        ->addData('GANANCIAS', [$ganancias])
+        ->setXAxis(['INGRESOS', 'GASTOS', 'GANANCIAS']);
+       
+        return view('reporte.indexganancia', compact('ingresos','gastos','ganancias','chart2'));
     }
 
 
 
-
+  
     public function reporteproyecto()
     {
         $fecha = Carbon::now()->format('Y-m-d');
@@ -97,7 +150,17 @@ class ReporteController extends Controller
     }
 
     public function mreporteproyecto(Request $request){
+       
+        $reglas= [
+            'fechaini' => 'required',
+            'fechafin' => 'required',
+        ];
+        $mensaje = [
+            'fechaini.required' => 'El campo Fecha Inicio es requerido',
+            'fechafin.required' => 'El campo Fecha Fin es requerido',
+        ];
 
+        $validated = $request->validate($reglas,$mensaje);
        
         $proyectos = Proyecto::where('created_at','>=', $request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->get();
         $total =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');

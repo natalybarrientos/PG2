@@ -19,10 +19,12 @@
 <br>
 <br>
 
+<div class="container center col-md-5 col-md-offset-5" >
+
         <form action="/reportes/gastopersonal/empleado" method="POST" autocomplete="off">
         @csrf
     <!-- Nombre del empleado -->
-        <div class="container center col-md-5 col-md-offset-5">
+        <div class="mb-3">
             <label for="" class="form-label">Empleado </label>
             <select name="empleado_id" class="form-control">
             @foreach ($empleados as $empleado)
@@ -33,21 +35,31 @@
     
 
     <!-- Fecha de inicio -->
-        <div class="container center col-md-5 col-md-offset-5" >
+        <div class="mb-3" >
             <label for="" class="form-label">Fecha de Inicio</label>
-            <input id="fechabaja" name="fechaini" type="date" class="form-control" require tabindex="5">
-        </div><br>
+            <input id="fechaini" name="fechaini" type="date" class="form-control" require tabindex="5">
+        </div>
+        @error('fechaini')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
     <!-- Fecha de fin -->
-        <div class="container center col-md-5 col-md-offset-5" >
+        <div class="mb-3" >
             <label for="" class="form-label">Fecha de Fin</label>
-            <input id="fechabaja" name="fechafin" type="date" require class="form-control" tabindex="5">
-        </div><br>
+            <input id="fechafin" name="fechafin" type="date" require class="form-control" tabindex="5">
+        </div>
+        @error('fechafin')
+         <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
 
 
         <div class="text-center">
         <button type="submit" class=" btn btn-primary" tabindex="4"><i class="fa-solid fa-person-circle-question"></i> | Consultar</button>
         </div><br><br>
+
+</div>
 
 @stop
 

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,18 @@ Route::post('reportes/ganancia/reporte',[App\Http\Controllers\ReporteController:
 Route::get('reportes/reporteproyecto',[App\Http\Controllers\ReporteController::class, 'reporteproyecto'])->name('reportes.reporteproyecto');
 Route::post('reportes/reporteproyecto/proyecto',[App\Http\Controllers\ReporteController::class, 'mreporteproyecto'])->name('reportes.reporteproyecto.consulta');
 
+Route::get('indexganancia', function(){
+    
+   
+    return $this->chart->polarAreaChart()
+    ->setTitle('Gráfica')
+    ->setSubtitle('Por las fechas seleccionadas')
+    ->addData([20, 24, 30])
+    ->setLabels(['Ingreso 7', 'Egreso 10', 'Ganancia 9']);
 
+    return view('indexganancia', compact('indexganancia', 'chart'));
+
+}); 
 
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');

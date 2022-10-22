@@ -23,9 +23,7 @@ class EmpleadoController extends Controller
        $empleados = Empleado::all();
        $pdf = PDF::loadView('empleado.pdf',['empleados'=>$empleados]);
        return $pdf->download('empleados.pdf');
-      
-
-       
+        
     }
 
     public function index()
