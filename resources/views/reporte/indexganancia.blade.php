@@ -37,7 +37,8 @@
     <div class="p-6 m-20 bg-white rounded shadow">
         {!! $chart2->container() !!}
     </div>
-
+<br>
+<br>
 </div>
 
 

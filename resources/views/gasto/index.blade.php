@@ -19,6 +19,7 @@
 <a href="gastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 @else
 <a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de Gasto generado: {{$total}}</a>
+<a href="/gastos/pdf/{{$total}}/{{$fechaini}}/{{$fechafin}}/{{$tipogastos_id}}/{{$maquinaria_id}}" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 @endif
 
 <div class="table-responsive">

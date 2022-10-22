@@ -26,10 +26,12 @@ class ProyectoController extends Controller
         return view('proyecto.index', compact ('proyectos','total'));
     }
 
-    public function pdf()
+    public function pdf($total,$fechaini,$fechafin)
     {
-       $proyectos = Proyecto::all();
-       $pdf = PDF::loadView('proyecto.pdf',['proyectos'=>$proyectos]);
+       $proyectos = Proyecto::where('created_at','>=', $fechaini.' 00:00:00')->where('created_at','<=',$fechafin.' 23:59:59')->get();
+       $total =  Proyecto::where('created_at','>=',$fechaini.' 00:00:00')->where('created_at','<=',$fechafin.' 23:59:59')->sum('costo');
+        
+       $pdf = PDF::loadView('proyecto.pdf',['proyectos'=>$proyectos,'total'=>$total]);
        return $pdf->download('proyectos.pdf');
     }
 

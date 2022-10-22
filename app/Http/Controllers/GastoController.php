@@ -8,6 +8,7 @@ use App\Models\Tipogastos;
 use App\Models\Maquinaria;
 use App\Models\Empleado;
 use Carbon\Carbon;
+use PDF;
 
 
 class GastoController extends Controller
@@ -25,6 +26,17 @@ class GastoController extends Controller
         $gastos = Gasto::all();
         $total= null;
         return view('gasto.index', compact('gastos','total'));
+    }
+
+    public function pdf($total,$fechaini,$fechafin,$tipogastos_id,$maquinaria_id)
+    {
+      
+        $gastos = Gasto::where('tipogastos_id', '=', $tipogastos_id)->where('maquinaria_id','=',$maquinaria_id)->where('fecha','>=',$fechaini)->where('fecha','<=',$fechafin)->get();
+        $total =  Gasto::where('tipogastos_id', '=', $tipogastos_id)->where('maquinaria_id','=',$maquinaria_id)->where('fecha','>=',$fechaini)->where('fecha','<=',$fechafin)->sum('costo');
+    
+       $pdf = PDF::loadView('gasto.pdf',['gastos'=>$gastos,'total'=>$total]);
+       return $pdf->download('gastos.pdf');
+        
     }
 
     /**

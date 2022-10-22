@@ -27,14 +27,25 @@ class GastoplanillaController extends Controller
         return view('gastoplanilla.index', compact('gastos','total'));
     }
 
-    public function pdf(Request $request )
+    public function pdf2($total,$fechaini,$fechafin,$empleado_id)
     {
        
-
-       $gasto = Gasto::find($request->gasto);   
-       $pdf = PDF::loadView('gastoplanilla.pdf',['gasto'=>$gasto]);
-       return $pdf->download('Comprobante-'.$request->gasto.'.pdf');
+       $gastos = Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$empleado_id)->where('fecha','>=',$fechaini)->where('fecha','<=',$fechafin)->get();
+       $total =  Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$empleado_id)->where('fecha','>=',$fechaini)->where('fecha','<=',$fechafin)->sum('costo');
+    
+       $pdf = PDF::loadView('gastoplanilla.pdfreporte',['gastos'=>$gastos,'total'=>$total]);
+       return $pdf->download('reporte_empleado.pdf');
     }
+
+    public function pdf(Request $request ){
+
+        $gasto = Gasto::find($request->gasto);   
+        $pdf = PDF::loadView('gastoplanilla.pdf',['gasto'=>$gasto]);
+        return $pdf->download('Comprobante-'.$request->gasto.'.pdf');
+
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      *

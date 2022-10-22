@@ -63,12 +63,15 @@ class ReporteController extends Controller
         ];
 
         $validated = $request->validate($reglas,$mensaje);
-
+        $fechaini=$request->fechaini;
+        $fechafin=$request->fechafin;
+        $tipogastos_id=$request->tipogastos_id;
+        $maquinaria_id=$request->maquinaria_id;
 
         $gastos = Gasto::where('tipogastos_id', '=', $request->tipogastos_id)->where('maquinaria_id','=',$request->maquinaria_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
         $total =  Gasto::where('tipogastos_id', '=', $request->tipogastos_id)->where('maquinaria_id','=',$request->maquinaria_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
     
-        return view('gasto.index', compact('gastos','total'));
+        return view('gasto.index', compact('gastos','total','fechaini','fechafin','tipogastos_id','maquinaria_id'));
     }
   
 
@@ -93,11 +96,14 @@ class ReporteController extends Controller
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+        $fechaini=$request->fechaini;
+        $fechafin=$request->fechafin;
+        $empleado_id=$request->empleado_id;
 
         $gastos = Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->get();
         $total =  Gasto::where('tipogastos_id', '=', '1')->where('empleado_id','=',$request->empleado_id)->where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
     
-        return view('gastoplanilla.index', compact('gastos', 'total'));
+        return view('gastoplanilla.index', compact('gastos', 'total','fechaini','fechafin','empleado_id'));
     }
 
 
@@ -133,8 +139,8 @@ class ReporteController extends Controller
         ->setColors(['#14a3e0', '#FFC107', '#D32F2F'])
         ->addData('INGRESOS', [$ingresos])
         ->addData('GASTOS', [$gastos])
-        ->addData('GANANCIAS', [$ganancias])
-        ->setXAxis(['INGRESOS', 'GASTOS', 'GANANCIAS']);
+        ->addData('BALANCE', [$ganancias])
+        ->setXAxis(['INGRESOS', 'GASTOS', 'BALANCE']);
        
         return view('reporte.indexganancia', compact('ingresos','gastos','ganancias','chart2'));
     }
@@ -161,11 +167,13 @@ class ReporteController extends Controller
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+        $fechaini=$request->fechaini;
+        $fechafin=$request->fechafin;
        
         $proyectos = Proyecto::where('created_at','>=', $request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->get();
         $total =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
         
-        return view('proyecto.index', compact ('proyectos','total'));
+        return view('proyecto.index', compact ('proyectos','total','fechaini','fechafin'));
     }
 
 

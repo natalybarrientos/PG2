@@ -37,54 +37,44 @@
         <td valign="top"><img data-imagetype="External" src="./vendor/adminlte/dist/img/LOGOMULTI.png" 
             width="150px" height="150px" style="border-top-width:0; border-right-width:0; border-bottom-width:0; border-left-width:0"></td>
         <td align="right">
-            <h1>PROYECTOS GENERADOS</h1>
-            <h2>Total: Q. {{$total}}</h2>
+            <h1>GASTOS GENERADOS</h1>
+          <h2>Total: Q. {{$total}}</h2>
         </td>
     </tr>
-  </table>
-<br>
-<br>
+</table>
+    <br>
+    <br>
 
-<table id="proyectos"  border="1" style="width:100%">
+<table id="empleados"  border="1" style="width:100%">
     <thead class="bg-dark text-white text-center">
         <tr>
         <th scope="col">ID</th>
-        <th scope="col">DESCRIPCIÓN</th>
-        <th scope="col">COSTO</th>
-        <th scope="col">CLIENTE</th>
-        <th scope="col">EMPLEADO ENCARGADO</th>
-        <th scope="col">FECHA DE INICIO</th>
-        <th scope="col">FECHA FIN</th>
-        <th scope="col">MAQUINARIA</th>
-    
+        <th scope="col">Descripción</th>
+        <th scope="col">Costo</th>
+        <th scope="col">Fecha de Factura o Vale</th>
+        <th scope="col">Factura o Vale</th>
+        <th scope="col">Tipo de gasto</th>
+        <th scope="col">Maquinaria</th>
+        <th scope="col">Empleado</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach ($proyectos as $proyecto) 
+        @foreach ($gastos as $gasto)
         <tr>
-             <td>{{$proyecto->id}}</td>
-             <td>{{$proyecto->descripcion}}</td>
-             <td>{{$proyecto->costo}}</td>
-             <td>{{$proyecto->clientes->nombre}}</td>
-             <td>{{$proyecto->empleados->nombre}}</td>
-             <td>{{$proyecto->fechainicio}}</td>
-             <td>{{$proyecto->fechafin}}</td>
-             <td>
-             
-              @foreach($proyecto->maquinarias as $maquinaria)
-                {{$maquinaria->nombre}}
-              @endforeach
-             
-             </td>
-          
-
+             <td>{{$gasto->id}}</td>
+             <td>{{$gasto->descripcion}}</td>
+             <td>{{$gasto->costo}}</td>
+             <td>{{$gasto->fecha}}</td>
+             <td>{{$gasto->factura}}</td>
+             <td>{{$gasto->tipogasto->tipo}}</td>
+             <td>{{$gasto->maquinarias->nombre}}</td>
+             <td>{{$gasto->empleados->nombre}}</td>
+                     
         </tr>
         @endforeach
     </tbody>
 
 
 </table>
-
-
 </html>

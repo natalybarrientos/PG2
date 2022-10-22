@@ -19,6 +19,7 @@
 <a href="gastoplanillas/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 @else
 <a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de pago generado a Empleado: {{$total}}</a>
+<a href="/gastoplanillas/pdfreporte/{{$total}}/{{$fechaini}}/{{$fechafin}}/{{$empleado_id}}" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 @endif
 <div class="table-responsive">
 

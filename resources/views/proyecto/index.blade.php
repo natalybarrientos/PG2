@@ -17,9 +17,9 @@
 
 @if($total==null)
 <a href="proyectos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
-<a href="proyectos/pdf" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 @else
 <a href="#" class="btn btn-danger mb-3"><i class="fa-solid fa-hand-holding-dollar"></i> | Total de ingreso generado: {{$total}}</a>
+<a href="/proyectos/pdf/{{$total}}/{{$fechaini}}/{{$fechafin}}" class="btn btn-danger mb-3"><i class="fa-solid fa-file-pdf"></i> | PDF</a>
 @endif
 
 

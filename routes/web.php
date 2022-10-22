@@ -23,8 +23,11 @@ Route::get('/', function () {
 Route::get('empleados/pdf',[App\Http\Controllers\EmpleadoController::class, 'pdf'])->name('empleados.pdf');
 Route::get('clientes/pdf',[App\Http\Controllers\ClienteController::class, 'pdf'])->name('clientes.pdf');
 Route::get('maquinarias/pdf',[App\Http\Controllers\MaquinariaController::class, 'pdf'])->name('maquinarias.pdf');
-Route::get('proyectos/pdf',[App\Http\Controllers\ProyectoController::class, 'pdf'])->name('proyectos.pdf');
+Route::get('proyectos/pdf/{total}/{fechaini}/{fechafin}',[App\Http\Controllers\ProyectoController::class, 'pdf'])->name('proyectos.pdf');
 Route::get('gastoplanillas/pdf/{gasto}',[App\Http\Controllers\GastoplanillaController::class, 'pdf'])->name('gastoplanillas.pdf');
+Route::get('gastos/pdf/{total}/{fechaini}/{fechafin}/{tipogastos_id}/{maquinaria_id}',[App\Http\Controllers\GastoController::class, 'pdf'])->name('gastos.pdf');
+Route::get('gastoplanillas/pdfreporte/{total}/{fechaini}/{fechafin}/{empleado_id}',[App\Http\Controllers\GastoplanillaController::class, 'pdf2'])->name('gastoplamillas.pdf');
+
 
 Route::get('reportes/gastomaquinaria',[App\Http\Controllers\ReporteController::class, 'gastomaquinaria'])->name('reportes.gastomaquinaria');
 Route::post('reportes/gastomaquinaria/maquinaria',[App\Http\Controllers\ReporteController::class, 'mgastomaquinaria'])->name('reportes.gastomaquinaria.consulta');
