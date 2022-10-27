@@ -16,15 +16,12 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="./vendor/adminlte/dist/img/LOGOMULTI.png" width="50%" height="100%" alt="First slide">
+      <img class="d-block w-100" src="./vendor/adminlte/dist/img/concretera.png" width="50%" height="100%" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
+      <img class="d-block w-100" src="./vendor/adminlte/dist/img/LOGOMULTI.png" width="50%" height="100%" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
     </div>
-  </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>

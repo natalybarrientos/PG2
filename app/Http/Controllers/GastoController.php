@@ -44,13 +44,17 @@ class GastoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-
+        
         $fecha = Carbon::now()->format('Y-m-d');
         
-
+        if($id==0){
         $maquinarias = Maquinaria::all();
+        }else{
+            $maquinarias = Maquinaria::where('id','=',$id)->get();  
+        }  
+
         $tipogastos = Tipogastos::all();
         $empleados = Empleado::all();
         return view('gasto.create', compact('tipogastos','maquinarias','empleados', 'fecha') );

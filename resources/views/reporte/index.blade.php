@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleados Multiservicios M&G')
+@section('title', 'Reportes')
 
 @section('content_header')
 
@@ -21,6 +21,8 @@
 <a href="reportes/gastomaquinaria" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large" ><i class="fa-solid fa-tractor"></i> | EQUIPOS </a>
 
 <a href="reportes/gastopersonal" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-clipboard"></i> | PLANILLAS </a>
+
+<a href="reportes/gastototal" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-clipboard"></i> | GASTO TOTAL </a>
 <br>
 <br>
 <br>

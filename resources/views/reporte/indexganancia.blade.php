@@ -1,9 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleados Multiservicios M&G')
+@section('title', 'Reporte de Ganancias')
 
 @section('content_header')
-
+<br>
+<br>
+<h1 class="text-dark text-center font-medium"> GANANCIAS GENERADAS </h1>
 @stop
 
 <font face="Courier New">
@@ -22,15 +24,15 @@
 <div class="text-center"> 
 <br>
 <br>
-<h1 class="text-dark text-center font-medium"> GANANCIAS GENERADAS </h1>
-<br>
-<br>
 
-<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large" ><i class="fa-solid fa-tractor"></i> | INGRESOS {{$ingresos}} </a>
-<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-clipboard"></i> | GASTOS {{$gastos}}</a>
-<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-clipboard"></i> | GANANCIAS {{$ganancias}}</a>
+
+
+<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large" ><i class="fa-solid fa-sack-dollar"></i> | INGRESOS {{$ingresos}} </a>
+<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-sack-dollar"></i> | GASTOS {{$gastos}}</a>
+<a href="#" class="btn btn-warning border border-dark p-5 text-center" style="font-size: large"><i class="fa-solid fa-scale-unbalanced-flip"></i> | BALANCE {{$ganancias}}</a>
 </div> 
-
+<br>
+<br>
 
 <div class="container px-4 mx-auto">
 

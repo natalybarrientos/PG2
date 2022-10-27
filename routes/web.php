@@ -31,28 +31,17 @@ Route::get('gastoplanillas/pdfreporte/{total}/{fechaini}/{fechafin}/{empleado_id
 
 Route::get('reportes/gastomaquinaria',[App\Http\Controllers\ReporteController::class, 'gastomaquinaria'])->name('reportes.gastomaquinaria');
 Route::post('reportes/gastomaquinaria/maquinaria',[App\Http\Controllers\ReporteController::class, 'mgastomaquinaria'])->name('reportes.gastomaquinaria.consulta');
-
 Route::get('reportes/gastopersonal',[App\Http\Controllers\ReporteController::class, 'gastopersonal'])->name('reportes.gastopersonal');
 Route::post('reportes/gastopersonal/empleado',[App\Http\Controllers\ReporteController::class, 'mgastopersonal'])->name('reportes.gastopersonal.consulta');
-
 Route::get('reportes/ganancia',[App\Http\Controllers\ReporteController::class, 'ganancia'])->name('reportes.ganancia');
 Route::post('reportes/ganancia/reporte',[App\Http\Controllers\ReporteController::class, 'mganancia'])->name('reportes.ganancia.reporte');
-
 Route::get('reportes/reporteproyecto',[App\Http\Controllers\ReporteController::class, 'reporteproyecto'])->name('reportes.reporteproyecto');
 Route::post('reportes/reporteproyecto/proyecto',[App\Http\Controllers\ReporteController::class, 'mreporteproyecto'])->name('reportes.reporteproyecto.consulta');
+Route::get('reportes/gastototal',[App\Http\Controllers\ReporteController::class, 'gastototal'])->name('reportes.gastototal');
+Route::post('reportes/gastototal/gasto',[App\Http\Controllers\ReporteController::class, 'mgastototal'])->name('reportes.gastototal.consulta');
 
-Route::get('indexganancia', function(){
-    
-   
-    return $this->chart->polarAreaChart()
-    ->setTitle('Gráfica')
-    ->setSubtitle('Por las fechas seleccionadas')
-    ->addData([20, 24, 30])
-    ->setLabels(['Ingreso 7', 'Egreso 10', 'Ganancia 9']);
+Route::get('gastos/create/{id}',[App\Http\Controllers\GastoController::class, 'create'])->name('reportes.gastototal');
 
-    return view('indexganancia', compact('indexganancia', 'chart'));
-
-}); 
 
 Route::resource('empleados','App\Http\Controllers\EmpleadoController');
 Route::resource('clientes','App\Http\Controllers\ClienteController');

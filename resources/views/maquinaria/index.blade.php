@@ -52,8 +52,8 @@
              <td>{{$maquinaria->estado}}</td>
              <td>
 
-             <a href="/maquinarias/{{$maquinaria->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
-      
+             <a href="/maquinarias/{{$maquinaria->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </a>
+             <a href="/gastos/create/{{$maquinaria->id}}" class="btn btn-info"><i class="fa-solid fa-file-invoice-dollar"></i> </a>
 
              </td>
         </tr>
@@ -85,17 +85,17 @@
         $('#maquinarias').DataTable ({
             language: {
                 "decimal": "",
-                "emptyTable": "No hay información",
-                "info": "Mostrando de Inicio a Fin el total de Información",
+                "emptyTable": "No se encontro Resultados",
+                "info": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
                 "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoFiltered": "(Filtrado de un total de _MAX_ registros)",
                 "infoPostFix": "",
                 "thousands": ",",
                 "lengthMenu": "",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscar:",
-                "zeroRecords": "Sin resultados encontrados",
+                "zeroRecords": "No se encontro Resultados",
                 "paginate": {
                     "first": "Primero",
                     "last": "Ultimo",

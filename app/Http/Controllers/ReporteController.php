@@ -63,6 +63,7 @@ class ReporteController extends Controller
         ];
 
         $validated = $request->validate($reglas,$mensaje);
+
         $fechaini=$request->fechaini;
         $fechafin=$request->fechafin;
         $tipogastos_id=$request->tipogastos_id;
@@ -131,7 +132,7 @@ class ReporteController extends Controller
        
         $ingresos =  Proyecto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
         $gastos =  Gasto::where('fecha','>=',$request->fechaini)->where('fecha','<=',$request->fechafin)->sum('costo');
-        $ganancias= $ingresos-$gastos;
+        $ganancias = $ingresos-$gastos;
        
         $chart2 = LarapexChart::horizontalBarChart()
         ->setTitle('GANANCIAS O PÉRDIDAS')
@@ -177,6 +178,34 @@ class ReporteController extends Controller
     }
 
 
+    public function gastototal()
+    {
+        $fecha = Carbon::now()->format('Y-m-d');
+       
+        return view('reporte.gastototal', compact('fecha'));
+    }
+
+    public function mgastototal(Request $request){
+       
+        $reglas= [
+            'fechaini' => 'required',
+            'fechafin' => 'required',
+        ];
+        $mensaje = [
+            'fechaini.required' => 'El campo Fecha Inicio es requerido',
+            'fechafin.required' => 'El campo Fecha Fin es requerido',
+        ];
+
+        $validated = $request->validate($reglas,$mensaje);
+
+        $fechaini=$request->fechaini;
+        $fechafin=$request->fechafin;
+       
+        $gastos = Gasto::where('created_at','>=', $request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->get();
+        $total =  Gasto::where('created_at','>=',$request->fechaini.' 00:00:00')->where('created_at','<=',$request->fechafin.' 23:59:59')->sum('costo');
+        
+        return view('reporte.indexgastototal', compact ('gastos','total','fechaini','fechafin'));
+    }
 
 
 

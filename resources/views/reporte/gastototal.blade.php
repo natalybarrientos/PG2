@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Reporte de Ganancias')
+@section('title', 'Reporte Gasto Total')
 
 @section('content_header')
 <font face="Copperplate">
-<h1 class="text-dark text-center font-medium"> G A N A N C I A S</h1>
+<h1 class="text-dark text-center font-medium"> G A S T O S </h1>
 <br>
 <br>
 </font> 
@@ -21,7 +21,7 @@
 
 <div class="container center col-md-5 col-md-offset-5" >
 
-<form action="/reportes/ganancia/reporte" method="POST" autocomplete="off">
+<form action="/reportes/gastototal/gasto" method="POST" autocomplete="off">
 @csrf
     <!-- Fecha de inicio -->
          <div class="mb-3" >
