@@ -17,7 +17,7 @@
 @section('content')
 
 
-<a href="users/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="users/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 
 <div class="table-responsive">
 
@@ -45,7 +45,7 @@
 
 
 
-             <a href="/users/{{$user->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
+             <a href="/users/{{$user->id}}/edit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>  </a>
 
              </td>
         </tr>

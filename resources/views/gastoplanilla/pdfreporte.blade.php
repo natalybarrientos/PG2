@@ -16,6 +16,8 @@
 
     h1 { font-size: 250% }
 
+    th { background-color:#FF8F19}
+
     tfoot tr td{
         font-weight: bold;
         font-size: x-small;

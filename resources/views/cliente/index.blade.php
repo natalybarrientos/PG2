@@ -2,17 +2,16 @@
 
 @section('title', 'Clientes Multiservicios M&G')
 
-
 @section('content_header')
-
 <font face="Copperplate">
-<h1 class="text-dark text-center font-medium"> C L I E N T E S </h1>
+<h1 class="text-dark text-center font-medium"> C L I E N T E S  </h1>
 <h1 class="text-dark text-center font-medium"> R E G I S T R A D O S </h1>
 <br>
-<br> 
-</font>
+<br>
+</font> 
 
 @stop
+
 <font face="Courier New">
 @section('content')
 
@@ -66,7 +65,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-@stop
 
 @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

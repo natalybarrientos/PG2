@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Gastos Multiservicios M&G')
+@section('title', 'Gastos Maquinarias Multiservicios M&G')
 
 @section('content_header')
 <font face="Copperplate">

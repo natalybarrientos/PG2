@@ -15,7 +15,7 @@
 @section('content')
 
 
-<a href="tipogastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i>   REGISTRAR</a>
+<a href="tipogastos/create" class="btn btn-info mb-3"><i class="fa-solid fa-file-circle-plus"></i> | REGISTRAR</a>
 
 <div class="table-responsive">
 
@@ -37,7 +37,7 @@
              <td>{{$tipogastos->descripcion}}</td>
              
         <td>
-        <a href="/tipogastos/{{$tipogastos->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>   EDITAR</a>
+        <a href="/tipogastos/{{$tipogastos->id}}/edit"   class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>  </a>
         </td>
         </tr>
         @endforeach

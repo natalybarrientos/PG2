@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Gastos Multiservicios M&G')
+@section('title', 'Gastos Planilla Multiservicios M&G')
 
 @section('content_header')
 

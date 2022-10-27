@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Empleados Multiservicios M&G')
+@section('title', 'Proyectos Multiservicios M&G')
 
 @section('content_header')
 <font face="Copperplate">
