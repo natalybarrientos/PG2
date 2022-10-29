@@ -141,6 +141,7 @@ class ReporteController extends Controller
         ->addData('INGRESOS', [$ingresos])
         ->addData('GASTOS', [$gastos])
         ->addData('BALANCE', [$ganancias])
+        ->setLabels(['Player 7', 'Player 10', 'Player 9'])
         ->setXAxis(['INGRESOS', 'GASTOS', 'BALANCE']);
        
         return view('reporte.indexganancia', compact('ingresos','gastos','ganancias','chart2'));

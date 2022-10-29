@@ -71,4 +71,12 @@ class User extends Authenticatable
 
     }
 
+    public function rest(){
+        if($this->estado == "Activo"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

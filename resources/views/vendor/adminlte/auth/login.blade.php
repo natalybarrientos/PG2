@@ -84,21 +84,6 @@
 @stop
 
 @section('auth_footer')
-    {{-- Password reset link --}}
-    @if($password_reset_url)
-        <p class="my-0">
-            <a href="{{ $password_reset_url }}">
-               Olvide la Contraseña
-            </a>
-        </p>
-    @endif
+  
 
-    {{-- Register link --}}
-    @if($register_url)
-        <p class="my-0">
-            <a href="{{ $register_url }}">
-               Registrar Nuevo Usuario
-            </a>
-        </p>
-    @endif
 @stop

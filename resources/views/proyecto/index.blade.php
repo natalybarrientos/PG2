@@ -24,7 +24,7 @@
 
 
 
-<div class="table-responsive">
+<div >
 
 <table id="proyectos" class="table table-striped table-bordered shadow-lg text-center mt-4" style="width:100%">
     <thead class="bg-dark text-white text-center">
